@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Full Service Point SARL — Multi Services Côte d'Ivoire</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="overflow-x-hidden">
+
+  <div id="progress-bar"></div>
+  <div class="cursor-glow"></div>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="logo-mark"><span>F</span><span>S</span><span>P</span></div>
+        <div class="flex flex-col leading-tight">
+          <span class="font-['Bebas_Neue'] text-xl tracking-widest text-white">Full Service Point</span>
+          <span class="text-[10px] font-['DM_Mono'] text-[#E63027] tracking-[0.25em] uppercase">SARL — Côte d'Ivoire</span>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#apropos"  class="nav-link">À propos</a>
+        <a href="#services" class="nav-link">Nos Services</a>
+        <a href="#projets"  class="nav-link">Projets</a>
+        <a href="#equipe"   class="nav-link">Équipe</a>
+        <a href="#contact"  class="nav-link">Contact</a>
+        <a href="#contact"  class="btn-red">Message Direct</a>
+      </div>
+      <button id="hamburger" class="lg:hidden flex flex-col gap-[6px] p-2 z-50">
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+        <span class="ham-line"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu">
+    <button id="close-mob" class="absolute top-6 right-6 text-3xl text-white opacity-60 hover:opacity-100">✕</button>
+    <a href="#apropos"  class="mobile-link">À propos</a>
+    <a href="#services" class="mobile-link">Nos Services</a>
+    <a href="#projets"  class="mobile-link">Projets</a>
+    <a href="#equipe"   class="mobile-link">Équipe</a>
+    <a href="#contact"  class="mobile-link">Contact</a>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+    <div class="hero-bg">
+      <!-- ↓ Remplacez ce div par : <img src="votre-image.jpg" alt="Hero FSP"> -->
+      <div class="w-full h-full bg-[#0D1B2A] flex items-center justify-center">
+        <p class="font-['DM_Mono'] text-xs text-[#E63027] tracking-widest opacity-50 text-center">
+          IMAGE HERO À REMPLACER<br/><span class="text-white/30">ex : engins BTP, chantier, équipes</span>
+        </p>
+      </div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+
+    <div class="hero-content relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Fondée en 2020 — Abidjan, Côte d'Ivoire
+      </div>
+      <h1 class="hero-title reveal d1 mt-4 mb-5">
+        FULL SERVICE<br/><span class="outline">POINT SARL</span>
+      </h1>
+      <p class="hero-sub mx-auto reveal d2 mb-8">
+        Une entreprise ivoirienne qui regroupe des services essentiels pour stimuler le développement économique et social en Côte d'Ivoire.
+      </p>
+      <div class="flex items-center justify-center gap-4 flex-wrap reveal d2">
+        <a href="#services" class="btn-red">Découvrir nos solutions</a>
+        <a href="#projets"  class="btn-outline">Nos Réalisations</a>
+      </div>
+      <div class="stats-row reveal d3">
+        <div class="stat-b">
+          <strong><span class="counting" data-target="5" data-suffix="+">0+</span></strong>
+          <span>Années d'expérience</span>
+        </div>
+        <div class="stat-b">
+          <strong><span class="counting" data-target="30" data-suffix="+">0+</span></strong>
+          <span>Missions accomplies</span>
+        </div>
+        <div class="stat-b">
+          <strong><span class="counting" data-target="6">0</span></strong>
+          <span>Pôles d'activité</span>
+        </div>
+        <div class="stat-b">
+          <strong><span class="counting" data-target="100" data-suffix="%">0%</span></strong>
+          <span>Made in Côte d'Ivoire</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-arrow z-10">
+      <div class="arrow-line"></div>
+      <div class="arrow-v"></div>
+    </div>
+  </section>
+
+  <!-- ══ À PROPOS ══ -->
+  <section id="apropos">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <div class="about-img-wrap reveal-left">
+        <div class="about-img-placeholder">
+          <!-- ↓ Remplacez par <img src="photo-equipe.jpg" alt="Équipe FSP" class="w-full h-full object-cover"> -->
+          <span class="text-5xl">🏢</span>
+          <p class="font-['DM_Mono'] text-xs text-[#E63027] mt-3 tracking-widest opacity-60 text-center">
+            IMAGE LOCAUX / ÉQUIPE
+          </p>
+        </div>
+        <div class="about-badge">
+          <strong>2020</strong>
+          <small>Année de création</small>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="section-label">Qui sommes-nous ?</div>
+        <h2 class="section-title mb-5">Multi Services<br/><span class="text-[#E63027]">Côte d'Ivoire</span></h2>
+        <p class="body-text mb-4">
+          Fondée en 2020 et pleinement opérationnelle depuis février 2023, <strong class="text-[#0D1B2A] font-semibold">FULL SERVICE POINT SARL</strong> est une entreprise ivoirienne qui s'est donnée pour mission de fournir des solutions complètes et fiables dans les secteurs clés du développement.
+        </p>
+        <p class="body-text mb-6">
+          Nous combinons expertise et innovation pour proposer des solutions sur-mesure dans des secteurs vitaux. Notre approche intégrée permet d'offrir un service complet pour particuliers, entreprises ou communautés.
+        </p>
+        <div class="values-grid">
+          <div class="val-chip"><span class="val-icon">💧</span> Hydraulique</div>
+          <div class="val-chip"><span class="val-icon">🏗️</span> BTP</div>
+          <div class="val-chip"><span class="val-icon">🚌</span> Transport</div>
+          <div class="val-chip"><span class="val-icon">🔒</span> Sécurité</div>
+          <div class="val-chip"><span class="val-icon">💰</span> Microfinance</div>
+          <div class="val-chip"><span class="val-icon">📦</span> Commerce</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SERVICES ══ -->
+  <section id="services">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center reveal">
+        <div class="section-label" style="justify-content:center;color:#fff">Ce que nous faisons</div>
+        <h2 class="section-title light mt-2">Nos <span class="text-[#E63027]">Services</span></h2>
+        <p class="body-text max-w-xl mx-auto mt-3" style="color:rgba(255,255,255,.5)">
+          Des prestations complètes et intégrées pour stimuler le développement.
+        </p>
+      </div>
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="s-card reveal"><div class="s-img"><span class="s-icon">💧</span>
+          <!-- <img src="hydraulique.jpg" alt="Hydraulique" class="w-full h-full object-cover absolute inset-0"> -->
+        </div><div class="s-body"><div class="s-num">01</div><h3 class="s-title">Hydraulique Villageoise Améliorée</h3><p class="s-desc">Construction de systèmes d'eau potable sur fonds propres, remboursable sur 3 ans. Éradiquer les maladies hydriques pour toute la CI.</p><a href="#contact" class="s-link">En savoir plus →</a></div></div>
+        <!-- Service 2 -->
+        <div class="s-card reveal d1"><div class="s-img"><span class="s-icon">🏗️</span></div><div class="s-body"><div class="s-num">02</div><h3 class="s-title">Bâtiment & Travaux Publics</h3><p class="s-desc">Maisons, immeubles, écoles, hôpitaux, routes, ponts, tunnels, aéroports, ports. Pilier du développement économique et social.</p><a href="#contact" class="s-link">En savoir plus →</a></div></div>
+        <!-- Service 3 -->
+        <div class="s-card reveal d2"><div class="s-img"><span class="s-icon">🔒</span></div><div class="s-body"><div class="s-num">03</div><h3 class="s-title">Sécurité Privée</h3><p class="s-desc">Protection des personnes et des biens, protection des itinéraires. Sécurité physique de haut niveau pour individus et groupes.</p><a href="#contact" class="s-link">En savoir plus →</a></div></div>
+        <!-- Service 4 -->
+        <div class="s-card reveal"><div class="s-img"><span class="s-icon">🚌</span></div><div class="s-body"><div class="s-num">04</div><h3 class="s-title">Transport Public & Privé</h3><p class="s-desc">Plusieurs modes de déplacement adaptés à chaque besoin pour permettre aux individus de se déplacer d'un point à un autre.</p><a href="#contact" class="s-link">En savoir plus →</a></div></div>
+        <!-- Service 5 -->
+        <div class="s-card reveal d1"><div class="s-img"><span class="s-icon">💰</span></div><div class="s-body"><div class="s-num">05</div><h3 class="s-title">Microfinance — FUFINAP</h3><p class="s-desc">Système financier décentralisé fournissant des services bancaires et de crédit à des personnes n'ayant pas accès aux services traditionnels.</p><a href="#contact" class="s-link">En savoir plus →</a></div></div>
+        <!-- Service 6 -->
+        <div class="s-card reveal d2"><div class="s-img"><span class="s-icon">📦</span></div><div class="s-body"><div class="s-num">06</div><h3 class="s-title">Commerce Import / Export</h3><p class="s-desc">Le commerce international est le secteur le plus essentiel de l'économie mondiale. Nous échangeons avec d'autres pays.</p><a href="#contact" class="s-link">En savoir plus →</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROJETS ══ -->
+  <section id="projets">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center reveal">
+        <div class="section-label" style="justify-content:center">Portfolio</div>
+        <h2 class="section-title mt-2">Nos <span class="text-[#E63027]">Réalisations</span></h2>
+        <p class="body-text max-w-lg mx-auto mt-3">Quelques réalisations représentatives de notre savoir-faire sur le terrain.</p>
+      </div>
+      <div class="gallery-grid">
+        <!-- Grande image -->
+        <div class="g-item g-item--big reveal">
+          <div class="g-placeholder">
+            <!-- <img src="realisation-1.jpg" alt="Réalisation 1" class="w-full h-full object-cover"> -->
+            <span class="text-5xl">📸</span>
+            <p class="font-['DM_Mono'] text-xs text-[#E63027] mt-3 tracking-widest text-center opacity-70">IMAGE PRINCIPALE<br/><span class="text-white/30">Grande réalisation</span></p>
+          </div>
+          <div class="g-overlay"><span class="g-caption">Hydraulique Villageoise — Projet pilote</span></div>
+        </div>
+        <!-- Petites images -->
+        <div class="g-item reveal d1"><div class="g-placeholder"><span class="text-3xl">📸</span><p class="font-['DM_Mono'] text-[10px] text-[#E63027] mt-2 tracking-widest opacity-60">IMAGE 2</p></div><div class="g-overlay"><span class="g-caption">BTP — Construction</span></div></div>
+        <div class="g-item reveal d2"><div class="g-placeholder"><span class="text-3xl">📸</span><p class="font-['DM_Mono'] text-[10px] text-[#E63027] mt-2 tracking-widest opacity-60">IMAGE 3</p></div><div class="g-overlay"><span class="g-caption">Réunion annuelle</span></div></div>
+        <div class="g-item reveal d1"><div class="g-placeholder"><span class="text-3xl">📸</span><p class="font-['DM_Mono'] text-[10px] text-[#E63027] mt-2 tracking-widest opacity-60">IMAGE 4</p></div><div class="g-overlay"><span class="g-caption">Transport & logistique</span></div></div>
+        <div class="g-item reveal d2"><div class="g-placeholder"><span class="text-3xl">📸</span><p class="font-['DM_Mono'] text-[10px] text-[#E63027] mt-2 tracking-widest opacity-60">IMAGE 5</p></div><div class="g-overlay"><span class="g-caption">Sécurité — Déploiement</span></div></div>
+      </div>
+      <div class="text-center mt-10 reveal">
+        <a href="#contact" class="btn-outline" style="border-color:#0D1B2A;color:#0D1B2A">Voir tous nos projets →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ÉQUIPE ══ -->
+  <section id="equipe">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center reveal">
+        <div class="section-label" style="justify-content:center">Les personnes derrière FSP</div>
+        <h2 class="section-title mt-2">Notre <span class="text-[#E63027]">Équipe</span></h2>
+        <p class="body-text max-w-lg mx-auto mt-3">Des professionnels engagés et passionnés par le développement de la Côte d'Ivoire.</p>
+      </div>
+      <div class="team-grid">
+        <div class="t-card reveal"><div class="t-photo"><span class="text-4xl">👤</span><p class="font-['DM_Mono'] text-[10px] text-[#E63027] mt-2 tracking-widest opacity-70">PHOTO MEMBRE</p></div><div class="t-bar"></div><div class="t-info"><h3 class="t-name">Prénom NOM</h3><span class="t-role">Directeur Général</span><p class="t-bio">Ajoutez ici la biographie, les expertises et le parcours du membre.</p></div></div>
+        <div class="t-card reveal d1"><div class="t-photo"><span class="text-4xl">👤</span><p class="font-['DM_Mono'] text-[10px] text-[#E63027] mt-2 tracking-widest opacity-70">PHOTO MEMBRE</p></div><div class="t-bar"></div><div class="t-info"><h3 class="t-name">Prénom NOM</h3><span class="t-role">Directeur des Opérations</span><p class="t-bio">Ajoutez ici la biographie, les expertises et le parcours du membre.</p></div></div>
+        <div class="t-card reveal d2"><div class="t-photo"><span class="text-4xl">👤</span><p class="font-['DM_Mono'] text-[10px] text-[#E63027] mt-2 tracking-widest opacity-70">PHOTO MEMBRE</p></div><div class="t-bar"></div><div class="t-info"><h3 class="t-name">Prénom NOM</h3><span class="t-role">Responsable BTP</span><p class="t-bio">Ajoutez ici la biographie, les expertises et le parcours du membre.</p></div></div>
+        <div class="t-card reveal d3"><div class="t-photo"><span class="text-4xl">👤</span><p class="font-['DM_Mono'] text-[10px] text-[#E63027] mt-2 tracking-widest opacity-70">PHOTO MEMBRE</p></div><div class="t-bar"></div><div class="t-info"><h3 class="t-name">Prénom NOM</h3><span class="t-role">Responsable Hydraulique</span><p class="t-bio">Ajoutez ici la biographie, les expertises et le parcours du membre.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <div class="cta-band text-center relative">
+    <div class="max-w-3xl mx-auto px-6 relative z-10 reveal">
+      <h2>Besoin d'une solution<br/>industrielle simplifiée ?</h2>
+      <p class="text-white/70 font-light mt-4 mb-8 text-base">Nous sommes experts. Contactez-nous dès aujourd'hui.</p>
+      <a href="#contact" class="btn-white">Contactez-nous maintenant →</a>
+    </div>
+  </div>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact">
+    <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+      <div class="reveal-left">
+        <div class="section-label" style="color:#fff">Parlons de votre projet</div>
+        <h2 class="section-title light mt-2 mb-6">Nous <span class="text-[#E63027]">Contacter</span></h2>
+        <p class="body-text mb-8" style="color:rgba(255,255,255,.5)">Que vous soyez un particulier, une entreprise ou une collectivité, nous sommes là pour vous accompagner.</p>
+        <div class="flex flex-col gap-3">
+          <div class="c-item"><div class="c-icon">📍</div><div><span class="c-label">Localisation</span><span class="c-val">Abidjan, Côte d'Ivoire</span></div></div>
+          <div class="c-item"><div class="c-icon">📞</div><div><span class="c-label">Téléphone</span><a href="tel:+225XXXXXXXXXX" class="c-val hover:text-[#E63027] transition-colors">+225 XX XX XX XX XX</a></div></div>
+          <div class="c-item"><div class="c-icon">✉️</div><div><span class="c-label">Email</span><a href="mailto:contact@fsp.ci" class="c-val hover:text-[#E63027] transition-colors">contact@fsp.ci</a></div></div>
+        </div>
+      </div>
+      <div class="c-form reveal-right">
+        <div class="f-group"><label>Nom complet</label><input type="text" placeholder="Jean Kouassi"/></div>
+        <div class="f-group"><label>Email</label><input type="email" placeholder="jean@exemple.com"/></div>
+        <div class="f-group"><label>Service concerné</label>
+          <select><option value="">Sélectionnez un service</option><option>Hydraulique Villageoise</option><option>Bâtiment & Travaux Publics</option><option>Sécurité Privée</option><option>Transport</option><option>Microfinance</option><option>Commerce Import/Export</option></select>
+        </div>
+        <div class="f-group"><label>Message</label><textarea placeholder="Décrivez votre besoin…"></textarea></div>
+        <button type="button" id="submit-btn" class="btn-red w-full mt-1">Envoyer le message</button>
+        <p id="form-ok">✓ Message envoyé ! Nous vous répondrons sous 24h.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-5 flex-wrap">
+      <div class="flex items-center gap-3">
+        <div class="logo-mark"><span>F</span><span>S</span><span>P</span></div>
+        <span class="font-['Bebas_Neue'] tracking-widest text-white text-lg">Full Service Point SARL</span>
+      </div>
+      <p class="font-['DM_Mono'] text-xs text-white/20">© 2026 Full Service Point SARL. Tous droits réservés.</p>
+      <div class="flex gap-5 flex-wrap justify-center">
+        <a href="#apropos"  class="foot-link">À propos</a>
+        <a href="#services" class="foot-link">Services</a>
+        <a href="#equipe"   class="foot-link">Équipe</a>
+        <a href="#contact"  class="foot-link">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
