@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hydraulique Villageoise : Notre modèle de financement sur 3 ans — Full Service Point SARL</title>
+  <meta name="description" content="Découvrez comment Full Service Point SARL préfinance à 100% sur fonds propres les forages et châteaux d'eau avec remboursement sur 3 ans pour les villages ivoiriens." />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DC2626',
+              'red-dark': '#B91C1C',
+              'red-light': '#EF4444',
+            },
+            slate: {
+              850: '#101626',
+              950: '#070A12',
+            }
+          },
+          fontFamily: {
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-white text-slate-700 antialiased selection:bg-red-500 selection:text-white">
+
+  <div id="scroll-progress"></div>
+
+  <!-- TOPBAR -->
+  <div id="topbar" class="hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between text-xs">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-2 text-slate-400">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-red"></i>
+          Abidjan / Yopougon, Côte d'Ivoire
+        </span>
+        <span class="flex items-center gap-2 text-slate-400">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-brand-red"></i>
+          +225 27 24 37 15 77 / +225 07 68 97 84 42
+        </span>
+        <span class="flex items-center gap-2 text-slate-400">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-brand-red"></i>
+          fullservicepoint@gmail.com
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
+        <span class="bg-white/5 px-2.5 py-0.5 rounded border border-white/10">RCCM: CI-ABJ-03-2023-B12-01377</span>
+        <span class="text-slate-400">Capital : 5 000 000 FCFA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-xl bg-white/10 p-1.5 flex items-center justify-center border border-white/15 backdrop-blur-md transition-transform group-hover:scale-105">
+          <img src="images/logo.png" alt="Logo FSP SARL" class="w-full h-full object-contain" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-lg text-white tracking-tight leading-none group-hover:text-red-400 transition-colors">
+            FULL SERVICE POINT
+          </span>
+          <span class="font-mono text-[10px] text-slate-400 tracking-wider uppercase mt-1">SARL • Côte d'Ivoire</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html#hero" class="nav-link">Accueil</a>
+        <a href="index.html#apropos" class="nav-link">À Propos</a>
+        <a href="index.html#services" class="nav-link">Pôles d'Activités</a>
+        <a href="index.html#projets" class="nav-link">Réalisations</a>
+        <a href="index.html#equipe" class="nav-link">Direction</a>
+        <a href="blog.html" class="nav-link active">Actualités</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="index.html#contact" class="btn btn-primary text-xs py-2 px-4 shadow-sm">
+          <span>Demander un Devis</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 btn-icon"></i>
+        </a>
+      </div>
+
+      <button id="menu-toggle" class="lg:hidden p-2 text-white hover:text-red-400 focus:outline-none" aria-label="Ouvrir le menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- DRAWER MOBILE -->
+  <div id="mobile-drawer" class="lg:hidden">
+    <div class="flex items-center justify-between pb-6 border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <img src="images/logo.png" alt="FSP SARL" class="w-9 h-9 object-contain" />
+        <span class="font-heading font-bold text-white text-base">FULL SERVICE POINT</span>
+      </div>
+      <button id="close-drawer" class="p-2 text-slate-400 hover:text-white" aria-label="Fermer le menu">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-5 mt-8">
+      <a href="index.html#hero" class="mobile-link text-xl font-heading font-semibold text-white">Accueil</a>
+      <a href="index.html#apropos" class="mobile-link text-xl font-heading font-semibold text-white">À Propos</a>
+      <a href="index.html#services" class="mobile-link text-xl font-heading font-semibold text-white">Pôles d'Activités</a>
+      <a href="index.html#projets" class="mobile-link text-xl font-heading font-semibold text-white">Nos Réalisations</a>
+      <a href="index.html#equipe" class="mobile-link text-xl font-heading font-semibold text-white">Équipe Dirigeante</a>
+      <a href="blog.html" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Actualités</a>
+      <a href="index.html#contact" class="mobile-link text-xl font-heading font-semibold text-white">Contact & Devis</a>
+    </nav>
+  </div>
+
+  <!-- EN-TÊTE DE L'ARTICLE -->
+  <header class="bg-slate-950 pt-36 pb-16 px-6 relative overflow-hidden">
+    <div class="hero-grid-pattern absolute inset-0 opacity-30"></div>
+    <div class="max-w-4xl mx-auto relative z-10">
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-6">
+        <a href="index.html" class="hover:text-white transition-colors">Accueil</a>
+        <span>/</span>
+        <a href="blog.html" class="hover:text-white transition-colors">Actualités</a>
+        <span>/</span>
+        <span class="text-blue-400">Hydraulique Villageoise</span>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 font-mono text-xs uppercase mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+        Modèle Économique & Social
+      </div>
+
+      <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight mb-6">
+        Hydraulique Villageoise : Notre programme innovant de préfinancement sur 3 ans
+      </h1>
+
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10 text-xs text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-slate-800 overflow-hidden border border-white/20">
+            <img src="images/profil/profil4.png" alt="M. Richard KOUAMÉ" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <span class="font-heading font-bold text-white block text-sm">M. Richard KOUAMÉ</span>
+            <span class="text-slate-400 font-mono text-[11px]">Directeur Hydraulique & Aménagements FSP SARL</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 font-mono text-slate-400">
+          <span class="flex items-center gap-1.5"><i data-lucide="droplet" class="w-3.5 h-3.5 text-blue-400"></i> Dossier HVA</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-brand-red"></i> 5 min de lecture</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CORPS DE L'ARTICLE -->
+  <main class="py-16 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Visuel principal : Château d'eau et réseau -->
+      <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-100 mb-12 bg-slate-900 aspect-[16/9]">
+        <img src="images/hydrolique/hydrolique-14.jpeg" alt="Château d'eau et réseau de distribution HVA" class="w-full h-full object-cover" />
+      </div>
+
+      <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-6 text-base sm:text-lg font-light">
+        
+        <p class="text-xl text-slate-900 font-normal leading-relaxed">
+          En milieu rural et périurbain ivoirien, la réalisation d’un système d’<strong>Hydraulique Villageoise Améliorée (HVA)</strong> représente souvent un obstacle financier insurmontable pour les communautés locales en raison du coût élevé de la foration profonde et du château d’eau.
+        </p>
+
+        <p>
+          Pour lever ce verrou majeur, <strong class="text-brand-red font-semibold">Full Service Point SARL</strong> a mis en place un dispositif inédit en Côte d'Ivoire : le <strong>financement intégral sur fonds propres de l'entreprise</strong>, assorti d'une facilité de remboursement échelonnée sur <strong>trois (3) années</strong>.
+        </p>
+
+        <!-- Schéma des 4 étapes clés -->
+        <div class="my-10 p-8 rounded-3xl bg-slate-50 border border-slate-200/80 not-prose">
+          <h3 class="font-heading font-bold text-slate-900 text-lg mb-6 flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i>
+            Comment fonctionne le modèle de préfinancement FSP ?
+          </h3>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+              <span class="font-mono text-xs font-bold text-brand-red block mb-1">ÉTAPE 01</span>
+              <h4 class="font-heading font-bold text-slate-900 text-sm mb-1">Étude Géophysique</h4>
+              <p class="text-xs text-slate-500 leading-snug">Détection des nappes phréatiques pérennes par imagerie électrique.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+              <span class="font-mono text-xs font-bold text-brand-red block mb-1">ÉTAPE 02</span>
+              <h4 class="font-heading font-bold text-slate-900 text-sm mb-1">Foration Industrielle</h4>
+              <p class="text-xs text-slate-500 leading-snug">Mobilisation des engins lourds à chenilles et tubage inox certifié.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+              <span class="font-mono text-xs font-bold text-brand-red block mb-1">ÉTAPE 03</span>
+              <h4 class="font-heading font-bold text-slate-900 text-sm mb-1">Édification Château</h4>
+              <p class="text-xs text-slate-500 leading-snug">Château d'eau métallique ou béton et bornes fontaines sécurisées.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white border border-slate-200 shadow-sm">
+              <span class="font-mono text-xs font-bold text-brand-red block mb-1">ÉTAPE 04</span>
+              <h4 class="font-heading font-bold text-slate-900 text-sm mb-1">Remboursement sur 3 ans</h4>
+              <p class="text-xs text-slate-500 leading-snug">Échéancier transparent sans pression financière immédiate.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="font-heading font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight pt-4">
+          Une foration de pointe avec matériels industriels sur chenilles
+        </h2>
+
+        <p>
+          Contrairement aux méthodes manuelles ou artisanales sujettes aux tarissements en saison sèche, Full Service Point SARL déploie des <strong>foreuses rotatives sur chenilles haute puissance</strong> capables d'atteindre le socle cristallin à plus de 80 à 120 mètres de profondeur.
+        </p>
+
+        <!-- Image de terrain engin lourd -->
+        <div class="my-8 rounded-2xl overflow-hidden shadow-lg border border-slate-200 not-prose">
+          <img src="images/realisation-2.jpeg" alt="Engin de forage lourd Full Service Point SARL" class="w-full h-80 object-cover" />
+          <div class="p-3 bg-slate-100 text-xs text-slate-600 font-mono flex items-center justify-between">
+            <span>Machine de foration industrielle déployée en région</span>
+            <span class="text-brand-red font-semibold">Chantier FSP</span>
+          </div>
+        </div>
+
+        <blockquote class="my-8 p-6 rounded-2xl bg-blue-50/60 border-l-4 border-blue-600">
+          <p class="font-heading font-bold text-slate-900 text-lg italic mb-2">
+            « Nous garantissons non seulement le débit nécessaire pour alimenter des milliers d'habitants, mais nous assurons également l'analyse bactériologique et la potabilité totale de l'eau avant toute mise en service. »
+          </p>
+          <cite class="not-italic text-xs font-mono font-semibold text-blue-700 uppercase block mt-2">
+            — M. Richard KOUAMÉ, Directeur Hydraulique & Aménagements
+          </cite>
+        </blockquote>
+
+        <h2 class="font-heading font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight pt-4">
+          Pérennité et formation du comité villageois
+        </h2>
+
+        <p>
+          Le succès d'un point d'eau ne s'arrête pas au premier jour de mise en eau. Full Service Point SARL accompagne chaque village dans la constitution d'un <strong>comité de gestion de l'eau</strong>. Des techniciens locaux sont formés à la maintenance préventive et disposent d'un accès direct à nos pièces de rechange d'origine.
+        </p>
+
+        <p>
+          Ce partenariat dans la durée consolide la confiance entre l'entreprise et les populations, tout en favorisant l'autonomie et l'hygiène publique durable.
+        </p>
+
+        <div class="pt-8 mt-12 border-t border-slate-200 not-prose flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono text-slate-400">Partager cet article :</span>
+            <a href="https://api.whatsapp.com/send?text=Programme%20Hydraulique%20Villageoise%20FSP%20SARL" target="_blank" class="p-2 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors" title="Partager sur WhatsApp">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </a>
+            <a href="mailto:?subject=Dossier%20Hydraulique%20FSP%20SARL&body=Consultez%20l'article" class="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors" title="Envoyer par email">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <a href="blog.html" class="btn btn-outline-slate text-xs py-2 px-4">
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+            <span>Retour aux actualités</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- BANNIÈRE DE CONTACT COLLECTIVITÉS -->
+  <section class="py-12 px-6 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-slate-950 to-slate-900 rounded-2xl p-8 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-white">
+        <div>
+          <span class="text-blue-400 font-mono text-xs uppercase font-semibold">Service aux Collectivités & Mairies</span>
+          <h3 class="font-heading font-bold text-xl text-white mt-1">Planifier un forage d'eau potable dans votre localité ?</h3>
+          <p class="text-xs text-slate-300 font-light mt-1">Nos ingénieurs hydrogéologues effectuent la visite de repérage sous 72h.</p>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary text-xs py-3 px-6 shadow-md flex-shrink-0">
+          <span>Demander un devis HVA</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 btn-icon"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-white/10 p-1.5 flex items-center justify-center border border-white/15">
+              <img src="images/logo.png" alt="Logo FSP" class="w-full h-full object-contain" />
+            </div>
+            <div>
+              <span class="font-heading font-extrabold text-white text-base tracking-tight block">FULL SERVICE POINT</span>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest block">SARL • Côte d'Ivoire</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 font-light max-w-sm leading-relaxed mb-6">
+            Entreprise multi-activités œuvrant dans l'hydraulique villageoise, le BTP, la sécurité privée, le transport et l'inclusion financière en Côte d'Ivoire.
+          </p>
+          <div class="text-xs text-slate-300 font-mono space-y-1">
+            <p>RCCM : CI-ABJ-03-2023-B12-01377</p>
+            <p class="text-emerald-400">Capital Social : 5 000 000 FCFA</p>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white text-sm mb-4">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="index.html#hero" class="hover:text-white transition-colors">Accueil</a></li>
+            <li><a href="index.html#apropos" class="hover:text-white transition-colors">À Propos</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Pôles d'Activités</a></li>
+            <li><a href="index.html#projets" class="hover:text-white transition-colors">Nos Réalisations</a></li>
+            <li><a href="index.html#equipe" class="hover:text-white transition-colors">Équipe Dirigeante</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors text-white font-semibold">Actualités / Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white text-sm mb-4">Expertises</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Hydraulique (HVA)</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">BTP & Travaux Publics</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Sécurité Privée</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Transport & Fret</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Auto-École</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Microfinance (FUFINAP)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white text-sm mb-4">Siège & Contact</h4>
+          <p class="text-xs text-slate-400 mb-2">Abidjan / Yopougon, Côte d'Ivoire</p>
+          <p class="text-xs text-white font-medium mb-1">Fixe : (+225) 27 24 37 15 77</p>
+          <p class="text-xs text-slate-300 font-medium mb-3">Mob : (+225) 07 68 97 84 42</p>
+          <a href="mailto:fullservicepoint@gmail.com" class="text-xs text-brand-red hover:underline block break-all">
+            fullservicepoint@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 sm:pr-24">
+        <p>© 2026 Full Service Point SARL. Tous droits réservés.</p>
+        <p class="text-slate-400">
+          Plateforme institutionnelle conçue par <span class="text-white font-semibold">Sly_TechnologieCi</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

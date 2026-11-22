@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extension des activités : Réunion au sommet pour l'accès à l'eau potable — Full Service Point SARL</title>
+  <meta name="description" content="Compte-rendu de la réunion stratégique du 04 Août réunissant M. Narcisse KRA (PDG) et M. Bérenger KOUE pour l'extension des infrastructures d'eau potable en Côte d'Ivoire." />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DC2626',
+              'red-dark': '#B91C1C',
+              'red-light': '#EF4444',
+            },
+            slate: {
+              850: '#101626',
+              950: '#070A12',
+            }
+          },
+          fontFamily: {
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-white text-slate-700 antialiased selection:bg-red-500 selection:text-white">
+
+  <div id="scroll-progress"></div>
+
+  <!-- TOPBAR -->
+  <div id="topbar" class="hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between text-xs">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-2 text-slate-400">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-red"></i>
+          Abidjan / Yopougon, Côte d'Ivoire
+        </span>
+        <span class="flex items-center gap-2 text-slate-400">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-brand-red"></i>
+          +225 27 24 37 15 77 / +225 07 68 97 84 42
+        </span>
+        <span class="flex items-center gap-2 text-slate-400">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-brand-red"></i>
+          fullservicepoint@gmail.com
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
+        <span class="bg-white/5 px-2.5 py-0.5 rounded border border-white/10">RCCM: CI-ABJ-03-2023-B12-01377</span>
+        <span class="text-slate-400">Capital : 5 000 000 FCFA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header id="navbar">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-xl bg-white/10 p-1.5 flex items-center justify-center border border-white/15 backdrop-blur-md transition-transform group-hover:scale-105">
+          <img src="images/logo.png" alt="Logo FSP SARL" class="w-full h-full object-contain" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-lg text-white tracking-tight leading-none group-hover:text-red-400 transition-colors">
+            FULL SERVICE POINT
+          </span>
+          <span class="font-mono text-[10px] text-slate-400 tracking-wider uppercase mt-1">SARL • Côte d'Ivoire</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html#hero" class="nav-link">Accueil</a>
+        <a href="index.html#apropos" class="nav-link">À Propos</a>
+        <a href="index.html#services" class="nav-link">Pôles d'Activités</a>
+        <a href="index.html#projets" class="nav-link">Réalisations</a>
+        <a href="index.html#equipe" class="nav-link">Direction</a>
+        <a href="blog.html" class="nav-link active">Actualités</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="index.html#contact" class="btn btn-primary text-xs py-2 px-4 shadow-sm">
+          <span>Demander un Devis</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 btn-icon"></i>
+        </a>
+      </div>
+
+      <button id="menu-toggle" class="lg:hidden p-2 text-white hover:text-red-400 focus:outline-none" aria-label="Ouvrir le menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- DRAWER MOBILE -->
+  <div id="mobile-drawer" class="lg:hidden">
+    <div class="flex items-center justify-between pb-6 border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <img src="images/logo.png" alt="FSP SARL" class="w-9 h-9 object-contain" />
+        <span class="font-heading font-bold text-white text-base">FULL SERVICE POINT</span>
+      </div>
+      <button id="close-drawer" class="p-2 text-slate-400 hover:text-white" aria-label="Fermer le menu">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-5 mt-8">
+      <a href="index.html#hero" class="mobile-link text-xl font-heading font-semibold text-white">Accueil</a>
+      <a href="index.html#apropos" class="mobile-link text-xl font-heading font-semibold text-white">À Propos</a>
+      <a href="index.html#services" class="mobile-link text-xl font-heading font-semibold text-white">Pôles d'Activités</a>
+      <a href="index.html#projets" class="mobile-link text-xl font-heading font-semibold text-white">Nos Réalisations</a>
+      <a href="index.html#equipe" class="mobile-link text-xl font-heading font-semibold text-white">Équipe Dirigeante</a>
+      <a href="blog.html" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Actualités</a>
+      <a href="index.html#contact" class="mobile-link text-xl font-heading font-semibold text-white">Contact & Devis</a>
+    </nav>
+  </div>
+
+  <!-- EN-TÊTE DE L'ARTICLE -->
+  <header class="bg-slate-950 pt-36 pb-16 px-6 relative overflow-hidden">
+    <div class="hero-grid-pattern absolute inset-0 opacity-30"></div>
+    <div class="max-w-4xl mx-auto relative z-10">
+      <!-- Fil d'ariane -->
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-400 mb-6">
+        <a href="index.html" class="hover:text-white transition-colors">Accueil</a>
+        <span>/</span>
+        <a href="blog.html" class="hover:text-white transition-colors">Actualités</a>
+        <span>/</span>
+        <span class="text-brand-red">Direction & Stratégie</span>
+      </nav>
+
+      <!-- Badge catégorie -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-brand-red font-mono text-xs uppercase mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-brand-red"></span>
+        Direction Générale & Partenariats
+      </div>
+
+      <!-- Titre principal -->
+      <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-tight mb-6">
+        Extension des activités : Réunion au sommet pour l'accès universel à l'eau potable durable
+      </h1>
+
+      <!-- Métadonnées & Auteur -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-white/10 text-xs text-slate-300">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-slate-800 overflow-hidden border border-white/20">
+            <img src="images/profil/profil1.png" alt="M. Narcisse KRA" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <span class="font-heading font-bold text-white block text-sm">M. Narcisse KRA & M. Bérenger KOUE</span>
+            <span class="text-slate-400 font-mono text-[11px]">Direction Générale & Opérations FSP SARL</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 font-mono text-slate-400">
+          <span class="flex items-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-red"></i> 04 Août</span>
+          <span class="flex items-center gap-1.5"><i data-lucide="clock" class="w-3.5 h-3.5 text-brand-red"></i> 4 min de lecture</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENU ÉDITORIAL DE L'ARTICLE -->
+  <main class="py-16 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- Visuel principal documenté -->
+      <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-100 mb-12 bg-slate-950">
+        <img src="images/presentation/2.png" alt="M. Narcisse KRA & M. Berenger KOUE lors de la réunion stratégique" class="w-full h-auto object-cover" />
+        <div class="p-4 bg-slate-900 text-xs font-mono text-slate-400 flex items-center justify-between">
+          <span>Communiqué officiel FSP SARL — Réunion stratégique du 04 Août</span>
+          <span class="text-emerald-400">Archivé & Certifié</span>
+        </div>
+      </div>
+
+      <!-- Corps du texte -->
+      <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-6 text-base sm:text-lg font-light">
+        
+        <p class="text-xl text-slate-900 font-normal leading-relaxed">
+          C’est à la date du <strong>04 Août</strong> que s’est tenue au siège de <strong class="text-brand-red">Full Service Point SARL</strong> une séance de travail stratégique de premier ordre entre les dirigeants et les partenaires clés de l’entreprise, ayant pour but d’accélérer le plan d’expansion national des infrastructures d’eau potable.
+        </p>
+
+        <p>
+          Conduite par <strong>M. Narcisse KRA</strong>, Président Directeur Général, et accompagné de <strong>M. Djedje Bérenger Cyrille KOUE</strong>, Directeur des Opérations et de la Production, cette concertation visait à apporter une réponse structurelle aux besoins pressants des populations urbaines, périurbaines et rurales de Côte d'Ivoire.
+        </p>
+
+        <!-- Citation mise en avant -->
+        <blockquote class="my-10 p-6 rounded-2xl bg-red-50/60 border-l-4 border-brand-red">
+          <i data-lucide="quote" class="w-8 h-8 text-brand-red mb-2 opacity-80"></i>
+          <p class="font-heading font-bold text-slate-900 text-lg sm:text-xl italic mb-2">
+            « Notre ambition fondamentale est de faire bénéficier chaque contrée de la Côte d'Ivoire des services et activités de Full Service Point en eau potable et durable. Aucun village, aucune communauté ne doit être laissée pour compte face à ce droit essentiel. »
+          </p>
+          <cite class="not-italic text-xs font-mono font-semibold text-brand-red uppercase block mt-3">
+            — M. Narcisse KRA, Président Directeur Général (PDG)
+          </cite>
+        </blockquote>
+
+        <h2 class="font-heading font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight pt-6">
+          1. L'Objectif : Rendre l'eau potable accessible à toutes les régions
+        </h2>
+        
+        <p>
+          L'accès régulier à une eau de qualité demeure un enjeu de santé publique et de développement économique central. Full Service Point SARL, grâce à son pôle spécialisé en <strong>Hydraulique Villageoise Améliorée (HVA)</strong>, dispose déjà d'engins industriels de forage sur chenilles et d'équipes géophysiques éprouvées.
+        </p>
+
+        <p>
+          Lors de cette séance, le Directeur des Opérations, <strong>M. Bérenger KOUE</strong>, a présenté le bilan des déploiements récents dans le District Autonome d'Abidjan et les étapes préparatoires pour toucher de nouveaux corridors régionaux (Moyen-Comoé, Bélier, Lacs, Haut-Sassandra).
+        </p>
+
+        <!-- Grille des 3 axes stratégiques validés -->
+        <div class="grid sm:grid-cols-3 gap-6 my-10 not-prose">
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="w-9 h-9 rounded-xl bg-red-50 text-brand-red flex items-center justify-center mb-3">
+              <i data-lucide="compass" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-sm mb-1">Axe 1 : Couverture Rurale</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Priorité absolue accordée aux localités en déficit chronique de bornes fontaines.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+              <i data-lucide="wallet" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-sm mb-1">Axe 2 : Facilités sur 3 ans</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Maintien du modèle exclusif de préfinancement sur fonds propres avec échelonnement.
+            </p>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/80">
+            <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
+              <i data-lucide="shield-check" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-sm mb-1">Axe 3 : Sécurisation BTP</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Supervision de la maintenance continue des pompes et châteaux d'eau installés.
+            </p>
+          </div>
+        </div>
+
+        <h2 class="font-heading font-bold text-2xl sm:text-3xl text-slate-900 tracking-tight pt-6">
+          2. Synergie opérationnelle avec les autres pôles du groupe
+        </h2>
+
+        <p>
+          L'un des grands avantages compétitifs de Full Service Point SARL réside dans son modèle intégré. Comme l'a souligné la direction, chaque chantier d'hydraulique mobilise directement :
+        </p>
+
+        <ul class="list-disc pl-6 space-y-2 text-base text-slate-600 font-light">
+          <li><strong>Le pôle BTP</strong> pour le coulage des dalles en béton armé des châteaux d'eau et le creusement des tranchées de canalisation.</li>
+          <li><strong>Le pôle Transport & Logistique</strong> pour l'acheminement des compresseurs lourds, tuyaux PEHD et groupes électrogènes sur site.</li>
+          <li><strong>Le pôle Sécurité Privée</strong> pour le gardiennage nocturne et la protection du matériel contre tout acte de vandalisme.</li>
+        </ul>
+
+        <p>
+          Cette chaîne de valeur fermée garantit une maîtrise absolue des coûts, des délais et de la qualité des livrables sans dépendance envers des sous-traitants externes.
+        </p>
+
+        <div class="pt-8 mt-12 border-t border-slate-200 not-prose flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-mono text-slate-400">Partager cette annonce :</span>
+            <a href="https://api.whatsapp.com/send?text=Extension%20des%20activites%20Full%20Service%20Point%20SARL" target="_blank" class="p-2 rounded-lg bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors" title="Partager sur WhatsApp">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </a>
+            <a href="mailto:?subject=Annonce%20FSP%20SARL&body=Consultez%20l'article" class="p-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-slate-200 transition-colors" title="Envoyer par email">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <a href="blog.html" class="btn btn-outline-slate text-xs py-2 px-4">
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+            <span>Retour aux actualités</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- BANNIÈRE DE CONTACT RAPIDE -->
+  <section class="py-12 px-6 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-slate-950 to-slate-900 rounded-2xl p-8 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 text-white">
+        <div>
+          <span class="text-brand-red font-mono text-xs uppercase font-semibold">Besoin d'un réseau d'eau potable ?</span>
+          <h3 class="font-heading font-bold text-xl text-white mt-1">Vous représentez une collectivité ou une mutuelle ?</h3>
+          <p class="text-xs text-slate-300 font-light mt-1">Bénéficiez de notre modèle de préfinancement sur 3 ans dès aujourd'hui.</p>
+        </div>
+        <a href="index.html#contact" class="btn btn-primary text-xs py-3 px-6 shadow-md flex-shrink-0">
+          <span>Étudier mon projet</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 btn-icon"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-white/10 p-1.5 flex items-center justify-center border border-white/15">
+              <img src="images/logo.png" alt="Logo FSP" class="w-full h-full object-contain" />
+            </div>
+            <div>
+              <span class="font-heading font-extrabold text-white text-base tracking-tight block">FULL SERVICE POINT</span>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest block">SARL • Côte d'Ivoire</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 font-light max-w-sm leading-relaxed mb-6">
+            Entreprise multi-activités œuvrant dans l'hydraulique villageoise, le BTP, la sécurité privée, le transport et l'inclusion financière en Côte d'Ivoire.
+          </p>
+          <div class="text-xs text-slate-300 font-mono space-y-1">
+            <p>RCCM : CI-ABJ-03-2023-B12-01377</p>
+            <p class="text-emerald-400">Capital Social : 5 000 000 FCFA</p>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white text-sm mb-4">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="index.html#hero" class="hover:text-white transition-colors">Accueil</a></li>
+            <li><a href="index.html#apropos" class="hover:text-white transition-colors">À Propos</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Pôles d'Activités</a></li>
+            <li><a href="index.html#projets" class="hover:text-white transition-colors">Nos Réalisations</a></li>
+            <li><a href="index.html#equipe" class="hover:text-white transition-colors">Équipe Dirigeante</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors text-white font-semibold">Actualités / Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white text-sm mb-4">Expertises</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Hydraulique (HVA)</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">BTP & Travaux Publics</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Sécurité Privée</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Transport & Fret</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Auto-École</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Microfinance (FUFINAP)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white text-sm mb-4">Siège & Contact</h4>
+          <p class="text-xs text-slate-400 mb-2">Abidjan / Yopougon, Côte d'Ivoire</p>
+          <p class="text-xs text-white font-medium mb-1">Fixe : (+225) 27 24 37 15 77</p>
+          <p class="text-xs text-slate-300 font-medium mb-3">Mob : (+225) 07 68 97 84 42</p>
+          <a href="mailto:fullservicepoint@gmail.com" class="text-xs text-brand-red hover:underline block break-all">
+            fullservicepoint@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 sm:pr-24">
+        <p>© 2026 Full Service Point SARL. Tous droits réservés.</p>
+        <p class="text-slate-400">
+          Plateforme institutionnelle conçue par <span class="text-white font-semibold">Sly_TechnologieCi</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

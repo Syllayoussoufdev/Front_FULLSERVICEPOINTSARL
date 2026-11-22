@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actualités & Publications — Full Service Point SARL</title>
+  <meta name="description" content="Découvrez les actualités officielles, analyses techniques et déploiements sur le terrain de Full Service Point SARL en Côte d'Ivoire." />
+  <link rel="icon" href="images/logo.png" type="image/png" />
+
+  <!-- Google Fonts : Plus Jakarta Sans (titres), Inter (texte), Space Grotesk (chiffres/badges) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DC2626',
+              'red-dark': '#B91C1C',
+              'red-light': '#EF4444',
+            },
+            slate: {
+              850: '#101626',
+              950: '#070A12',
+            }
+          },
+          fontFamily: {
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-slate-50 text-slate-700 antialiased selection:bg-red-500 selection:text-white">
+
+  <!-- Barre de progression -->
+  <div id="scroll-progress"></div>
+
+  <!-- ══════════════════════════════════════════
+       TOPBAR INSTITUTIONNELLE
+  ══════════════════════════════════════════ -->
+  <div id="topbar" class="hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between text-xs">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-2 text-slate-400">
+          <i data-lucide="map-pin" class="w-3.5 h-3.5 text-brand-red"></i>
+          Abidjan / Yopougon, Côte d'Ivoire
+        </span>
+        <span class="flex items-center gap-2 text-slate-400">
+          <i data-lucide="phone-call" class="w-3.5 h-3.5 text-brand-red"></i>
+          +225 27 24 37 15 77 / +225 07 68 97 84 42
+        </span>
+        <span class="flex items-center gap-2 text-slate-400">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-brand-red"></i>
+          fullservicepoint@gmail.com
+        </span>
+      </div>
+      <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
+        <span class="bg-white/5 px-2.5 py-0.5 rounded border border-white/10">
+          RCCM: CI-ABJ-03-2023-B12-01377
+        </span>
+        <span class="text-slate-400">Capital : 5 000 000 FCFA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       NAVBAR PRINCIPALE
+  ══════════════════════════════════════════ -->
+  <header id="navbar">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-xl bg-white/10 p-1.5 flex items-center justify-center border border-white/15 backdrop-blur-md transition-transform group-hover:scale-105">
+          <img src="images/logo.png" alt="Logo FSP SARL" class="w-full h-full object-contain" />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-lg text-white tracking-tight leading-none group-hover:text-red-400 transition-colors">
+            FULL SERVICE POINT
+          </span>
+          <span class="font-mono text-[10px] text-slate-400 tracking-wider uppercase mt-1">
+            SARL • Côte d'Ivoire
+          </span>
+        </div>
+      </a>
+
+      <!-- Menu Bureau -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html#hero" class="nav-link">Accueil</a>
+        <a href="index.html#apropos" class="nav-link">À Propos</a>
+        <a href="index.html#services" class="nav-link">Pôles d'Activités</a>
+        <a href="index.html#projets" class="nav-link">Réalisations</a>
+        <a href="index.html#equipe" class="nav-link">Direction</a>
+        <a href="blog.html" class="nav-link active">Actualités</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="index.html#contact" class="btn btn-primary text-xs py-2 px-4 shadow-sm">
+          <span>Demander un Devis</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 btn-icon"></i>
+        </a>
+      </div>
+
+      <button id="menu-toggle" class="lg:hidden p-2 text-white hover:text-red-400 focus:outline-none" aria-label="Ouvrir le menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       DRAWER MOBILE
+  ══════════════════════════════════════════ -->
+  <div id="mobile-drawer" class="lg:hidden">
+    <div class="flex items-center justify-between pb-6 border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <img src="images/logo.png" alt="FSP SARL" class="w-9 h-9 object-contain" />
+        <span class="font-heading font-bold text-white text-base">FULL SERVICE POINT</span>
+      </div>
+      <button id="close-drawer" class="p-2 text-slate-400 hover:text-white" aria-label="Fermer le menu">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-5 mt-8">
+      <a href="index.html#hero" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Accueil</a>
+      <a href="index.html#apropos" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">À Propos</a>
+      <a href="index.html#services" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Pôles d'Activités</a>
+      <a href="index.html#projets" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Nos Réalisations</a>
+      <a href="index.html#equipe" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Équipe Dirigeante</a>
+      <a href="blog.html" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Actualités</a>
+      <a href="index.html#contact" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Contact & Devis</a>
+    </nav>
+    <div class="mt-auto pt-6 border-t border-white/10 flex flex-col gap-4">
+      <a href="index.html#contact" class="btn btn-primary w-full text-center">
+        <i data-lucide="send" class="w-4 h-4"></i>
+        <span>Obtenir une étude personnalisée</span>
+      </a>
+      <div class="text-xs text-slate-400 text-center font-mono">
+        +225 27 24 37 15 77 • Abidjan, Côte d'Ivoire
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       HERO DU BLOG
+  ══════════════════════════════════════════ -->
+  <section class="bg-slate-950 pt-36 pb-20 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-red-950/20 via-slate-900/60 to-slate-950 pointer-events-none"></div>
+    <div class="hero-grid-pattern absolute inset-0 opacity-40"></div>
+    <div class="relative z-10 max-w-7xl mx-auto text-center">
+      <span class="section-badge section-badge-dark mb-4">
+        <span class="section-badge-dot"></span>
+        Espace Médias & Blog Officiel
+      </span>
+      <h1 class="font-heading font-extrabold text-3xl sm:text-5xl text-white tracking-tight mt-2 mb-4">
+        Actualités, Décisions & Chantiers
+      </h1>
+      <p class="text-slate-300 font-light text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+        Suivez au plus près les initiatives de la direction, l'avancement de nos projets d'eau potable et nos analyses sectorielles en Côte d'Ivoire.
+      </p>
+
+      <!-- Barre de recherche & filtres rapides -->
+      <div class="mt-10 max-w-xl mx-auto relative">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+          <input type="text" id="blog-search-input" placeholder="Rechercher un article, un mot-clé (eau, BTP, réunion...)" class="w-full pl-11 pr-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder-slate-400 text-sm focus:outline-none focus:border-red-500 focus:bg-white/15 transition-all" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SECTION PRINCIPALE DU BLOG
+  ══════════════════════════════════════════ -->
+  <section class="section-wrapper bg-slate-50 pt-12 pb-24">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Filtres par catégorie -->
+      <div class="flex items-center gap-2 flex-wrap mb-10 pb-6 border-b border-slate-200">
+        <button class="portfolio-tab active text-xs" data-category-filter="all">Tous les articles</button>
+        <button class="portfolio-tab text-xs" data-category-filter="strategie">Direction & Stratégie</button>
+        <button class="portfolio-tab text-xs" data-category-filter="hydraulique">Hydraulique Villageoise</button>
+        <button class="portfolio-tab text-xs" data-category-filter="btp">BTP & Infrastructures</button>
+      </div>
+
+      <!-- ARTICLE À LA UNE (FEATURED) -->
+      <div class="mb-14 reveal blog-item" data-category="strategie">
+        <div class="bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 grid lg:grid-cols-12">
+          <div class="lg:col-span-7 relative h-72 lg:h-auto overflow-hidden">
+            <img src="images/presentation/2.png" alt="Réunion M. Narcisse KRA et M. Bérenger KOUE" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <div class="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-white font-mono text-xs px-3 py-1 rounded-full border border-white/10">
+              À LA UNE • 04 AOÛT
+            </div>
+          </div>
+          <div class="lg:col-span-5 p-8 lg:p-10 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-3 text-xs text-slate-500 font-mono mb-3">
+                <span class="text-brand-red font-semibold uppercase">Direction Générale</span>
+                <span>•</span>
+                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> 4 min de lecture</span>
+              </div>
+              <h2 class="font-heading font-extrabold text-slate-900 text-2xl lg:text-3xl leading-snug hover:text-brand-red transition-colors mb-4">
+                <a href="article-extension-activites.html">Extension des activités : Réunion au sommet pour l'accès universel à l'eau potable durable</a>
+              </h2>
+              <p class="text-sm text-slate-600 leading-relaxed font-light mb-6">
+                Le 04 Août s'est tenue une importante réunion de cadrage entre M. Narcisse KRA (PDG) et M. Bérenger KOUE (Directeur des Opérations) pour planifier l'extension des infrastructures d'hydraulique villageoise dans toutes les contrées de Côte d'Ivoire.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-slate-100 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-slate-100 overflow-hidden border border-slate-200">
+                  <img src="images/profil/profil1.png" alt="Narcisse KRA" class="w-full h-full object-cover" />
+                </div>
+                <div class="text-xs">
+                  <strong class="block text-slate-900 font-heading font-semibold">M. Narcisse KRA</strong>
+                  <span class="text-slate-400 font-mono text-[11px]">Président Directeur Général</span>
+                </div>
+              </div>
+              <a href="article-extension-activites.html" class="btn btn-primary text-xs py-2.5 px-4 shadow-sm">
+                <span>Lire l'article</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 btn-icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRILLE DES ARTICLES -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Article 2 : Hydraulique et Modèle 3 ans -->
+        <article class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col reveal blog-item group" data-category="hydraulique">
+          <a href="article-modele-financement-hva.html" class="h-56 overflow-hidden relative block">
+            <img src="images/hydrolique/hydrolique-14.jpeg" alt="Château d'eau et foration" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white font-mono text-[11px] px-2.5 py-1 rounded-md">
+              Hydraulique HVA
+            </div>
+          </a>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex items-center gap-2 text-xs font-mono text-blue-600 font-semibold mb-2">
+              <span class="uppercase">Infrastructures Rurales</span>
+              <span>•</span>
+              <span class="text-slate-400 font-normal">5 min</span>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg mb-3 group-hover:text-brand-red transition-colors">
+              <a href="article-modele-financement-hva.html">Hydraulique Villageoise : Notre programme innovant de préfinancement sur 3 ans</a>
+            </h3>
+            <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-5">
+              En préfinançant les forages et réseaux de distribution sur fonds propres, Full Service Point SARL permet aux communautés rurales d'accéder immédiatement à une eau saine avec remboursement étalé.
+            </p>
+            <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-500">M. Richard KOUAMÉ</span>
+              <a href="article-modele-financement-hva.html" class="text-brand-red font-semibold flex items-center gap-1 group-hover:underline">
+                <span>Lire l'article</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 btn-icon"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 : Rigueur multi-services et devis -->
+        <article class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col reveal delay-1 blog-item group" data-category="btp">
+          <a href="article-extension-activites.html" class="h-56 overflow-hidden relative block">
+            <img src="images/devi.jpg" alt="Planification et études de projets" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white font-mono text-[11px] px-2.5 py-1 rounded-md">
+              Méthodologie
+            </div>
+          </a>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex items-center gap-2 text-xs font-mono text-emerald-600 font-semibold mb-2">
+              <span class="uppercase">Bureau d'Études</span>
+              <span>•</span>
+              <span class="text-slate-400 font-normal">3 min</span>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg mb-3 group-hover:text-brand-red transition-colors">
+              <a href="article-extension-activites.html">Du devis à la livraison : la rigueur d'un interlocuteur multiservices unique</a>
+            </h3>
+            <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-5">
+              Coordination centralisée, suivi rigoureux des chantiers et optimisation budgétaire : pourquoi confier BTP, sécurité et logistique à un seul acteur simplifie vos opérations.
+            </p>
+            <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-500">Bureau Technique</span>
+              <a href="article-extension-activites.html" class="text-brand-red font-semibold flex items-center gap-1 group-hover:underline">
+                <span>Lire l'article</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 btn-icon"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4 : Déploiement Sécurité et logistique -->
+        <article class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col reveal delay-2 blog-item group" data-category="btp">
+          <a href="article-modele-financement-hva.html" class="h-56 overflow-hidden relative block">
+            <img src="images/securite/Securité-1.jpg" alt="Sécurité et rondes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white font-mono text-[11px] px-2.5 py-1 rounded-md">
+              Sécurité & Logistique
+            </div>
+          </a>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="flex items-center gap-2 text-xs font-mono text-purple-600 font-semibold mb-2">
+              <span class="uppercase">Opérations 24/7</span>
+              <span>•</span>
+              <span class="text-slate-400 font-normal">4 min</span>
+            </div>
+            <h3 class="font-heading font-bold text-slate-900 text-lg mb-3 group-hover:text-brand-red transition-colors">
+              <a href="article-modele-financement-hva.html">Sécurisation des sites isolés : protocoles et veille opérationnelle continue</a>
+            </h3>
+            <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-5">
+              Retour sur les dispositifs de gardiennage et de surveillance déployés sur les chantiers de forage et zones d'infrastructures sensibles en Côte d'Ivoire.
+            </p>
+            <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-500">M. Bérenger KOUE</span>
+              <a href="article-modele-financement-hva.html" class="text-brand-red font-semibold flex items-center gap-1 group-hover:underline">
+                <span>Lire l'article</span>
+                <i data-lucide="arrow-right" class="w-3.5 h-3.5 btn-icon"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CALL TO ACTION ÉPURÉ
+  ══════════════════════════════════════════ -->
+  <section class="py-12 px-6 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="relative rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-8 md:p-12 border border-white/10 shadow-xl overflow-hidden">
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          <div class="max-w-2xl">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-emerald-400 font-mono text-[11px] mb-3">
+              Direction Commerciale FSP SARL
+            </span>
+            <h2 class="font-heading font-bold text-2xl sm:text-3xl text-white tracking-tight leading-snug">
+              Vous représentez une collectivité ou une entreprise ?
+            </h2>
+            <p class="text-slate-300 text-sm mt-2 font-light">
+              Contactez directement notre bureau pour étudier vos besoins en eau potable, BTP, transport ou sécurité.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 flex-shrink-0">
+            <a href="index.html#contact" class="btn btn-primary text-xs py-3 px-6 shadow-md">
+              <span>Demander une étude</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 btn-icon"></i>
+            </a>
+            <a href="tel:+2252724371577" class="btn btn-secondary text-xs py-3 px-5">
+              <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+              <span>Standard Abidjan</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER INSTITUTIONNEL
+  ══════════════════════════════════════════ -->
+  <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-xl bg-white/10 p-1.5 flex items-center justify-center border border-white/15">
+              <img src="images/logo.png" alt="Logo FSP" class="w-full h-full object-contain" />
+            </div>
+            <div>
+              <span class="font-heading font-extrabold text-white text-base tracking-tight block">FULL SERVICE POINT</span>
+              <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest block">SARL • Côte d'Ivoire</span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 font-light max-w-sm leading-relaxed mb-6">
+            Entreprise multi-activités œuvrant dans l'hydraulique villageoise, le BTP, la sécurité privée, le transport et l'inclusion financière en Côte d'Ivoire.
+          </p>
+          <div class="text-xs text-slate-300 font-mono space-y-1">
+            <p>RCCM : CI-ABJ-03-2023-B12-01377</p>
+            <p class="text-emerald-400">Capital Social : 5 000 000 FCFA</p>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white text-sm mb-4">Navigation</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="index.html#hero" class="hover:text-white transition-colors">Accueil</a></li>
+            <li><a href="index.html#apropos" class="hover:text-white transition-colors">À Propos</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Pôles d'Activités</a></li>
+            <li><a href="index.html#projets" class="hover:text-white transition-colors">Nos Réalisations</a></li>
+            <li><a href="index.html#equipe" class="hover:text-white transition-colors">Équipe Dirigeante</a></li>
+            <li><a href="blog.html" class="hover:text-white transition-colors text-white font-semibold">Actualités / Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white text-sm mb-4">Expertises</h4>
+          <ul class="space-y-2.5 text-xs">
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Hydraulique (HVA)</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">BTP & Travaux Publics</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Sécurité Privée</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Transport & Fret</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Auto-École</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Microfinance (FUFINAP)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-heading font-bold text-white text-sm mb-4">Siège & Contact</h4>
+          <p class="text-xs text-slate-400 mb-2">Abidjan / Yopougon, Côte d'Ivoire</p>
+          <p class="text-xs text-white font-medium mb-1">Fixe : (+225) 27 24 37 15 77</p>
+          <p class="text-xs text-slate-300 font-medium mb-3">Mob : (+225) 07 68 97 84 42</p>
+          <a href="mailto:fullservicepoint@gmail.com" class="text-xs text-brand-red hover:underline block break-all">
+            fullservicepoint@gmail.com
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 sm:pr-24">
+        <p>© 2026 Full Service Point SARL. Tous droits réservés.</p>
+        <p class="text-slate-400">
+          Plateforme institutionnelle conçue par <span class="text-white font-semibold">Sly_TechnologieCi</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Widget -->
+  <a href="https://wa.me/2250768978442?text=Bonjour%20Full%20Service%20Point%20SARL,%20je%20souhaite%20des%20informations%20sur%20vos%20services" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contacter sur WhatsApp">
+    <i data-lucide="message-circle" class="w-7 h-7"></i>
+  </a>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+  <script>
+    // Filtrage dynamique du blog
+    const searchInput = document.getElementById('blog-search-input');
+    const categoryBtns = document.querySelectorAll('[data-category-filter]');
+    const blogItems = document.querySelectorAll('.blog-item');
+
+    let currentFilter = 'all';
+
+    const filterArticles = () => {
+      const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+
+      blogItems.forEach(item => {
+        const cat = item.getAttribute('data-category');
+        const text = item.innerText.toLowerCase();
+        const matchesCategory = (currentFilter === 'all' || cat === currentFilter);
+        const matchesSearch = query === '' || text.includes(query);
+
+        if (matchesCategory && matchesSearch) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    };
+
+    if (searchInput) {
+      searchInput.addEventListener('input', filterArticles);
+    }
+
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-category-filter');
+        filterArticles();
+      });
+    });
+  </script>
+</body>
+</html>

@@ -105,15 +105,15 @@
         <a href="#services" class="nav-link">Pôles d'Activités</a>
         <a href="#projets" class="nav-link">Réalisations</a>
         <a href="#equipe" class="nav-link">Direction</a>
-        <a href="#actualites" class="nav-link">Actualités</a>
+        <a href="blog.html" class="nav-link">Actualités</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
 
       <!-- Actions de droite -->
       <div class="hidden lg:flex items-center gap-4">
-        <a href="#contact" class="btn btn-primary text-xs py-2.5 px-5">
-          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+        <a href="#contact" class="btn btn-primary text-xs py-2 px-4 shadow-sm">
           <span>Demander un Devis</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5 btn-icon"></i>
         </a>
       </div>
 
@@ -192,14 +192,14 @@
           </p>
 
           <!-- Boutons d'action -->
-          <div class="flex flex-wrap items-center gap-4 mt-8 reveal delay-3">
-            <a href="#contact" class="btn btn-primary">
-              <i data-lucide="send" class="w-4 h-4"></i>
+          <div class="flex flex-wrap items-center gap-3.5 mt-8 reveal delay-3">
+            <a href="#contact" class="btn btn-primary text-xs py-3 px-6 shadow-md">
               <span>Demander un Devis Gratuit</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 btn-icon"></i>
             </a>
-            <a href="#projets" class="btn btn-secondary">
-              <i data-lucide="layers" class="w-4 h-4"></i>
-              <span>Découvrir nos Chantiers</span>
+            <a href="#projets" class="btn btn-secondary text-xs py-3 px-6">
+              <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+              <span>Explorer nos Chantiers</span>
             </a>
           </div>
 
@@ -859,57 +859,63 @@
           </p>
         </div>
         <div class="reveal delay-1">
-          <span class="inline-flex items-center gap-2 text-xs font-mono text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-red"></i>
-            Module CMS Blog Intégré
-          </span>
+          <a href="blog.html" class="btn btn-outline-slate text-xs py-2 px-4">
+            <span>Consulter tous les articles</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 btn-icon"></i>
+          </a>
         </div>
       </div>
 
       <!-- Grille des 3 Articles Éditoriaux Récents -->
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Article 1 : Réunion Stratégique Partenaires (Basé sur 2.png réel) -->
-        <article class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col reveal">
-          <div class="h-52 overflow-hidden relative">
-            <img src="images/presentation/2.png" alt="Réunion Partenaires Full Service Point" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        <article class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col reveal group">
+          <a href="article-extension-activites.html" class="h-52 overflow-hidden relative block">
+            <img src="images/presentation/2.png" alt="Réunion Partenaires Full Service Point" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white font-mono text-[11px] px-2.5 py-1 rounded-md">
               04 Août • Stratégie
             </div>
-          </div>
+          </a>
           <div class="p-6 flex flex-col flex-grow">
             <span class="text-xs font-mono text-brand-red font-semibold uppercase">Direction Générale</span>
-            <h3 class="font-heading font-bold text-slate-900 text-lg mt-1 mb-2 hover:text-brand-red transition-colors">
-              Extension des activités : Réunion au sommet pour l'accès à l'eau potable
+            <h3 class="font-heading font-bold text-slate-900 text-lg mt-1 mb-2 group-hover:text-brand-red transition-colors">
+              <a href="article-extension-activites.html">Extension des activités : Réunion au sommet pour l'accès à l'eau potable</a>
             </h3>
             <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4">
               Tenue d'une importante réunion de cadrage entre M. Narcisse KRA (PDG) et M. Bérenger KOUE (Directeur des Opérations) pour planifier l'extension des infrastructures d'hydraulique villageoise dans les contrées ivoiriennes.
             </p>
             <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
               <span>Par FSP Rédaction</span>
-              <span class="text-brand-red font-semibold flex items-center gap-1">Lire l'article <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+              <a href="article-extension-activites.html" class="text-brand-red font-semibold flex items-center gap-1 group-hover:underline">
+                <span>Lire l'article</span>
+                <i data-lucide="arrow-right" class="w-3 h-3 btn-icon"></i>
+              </a>
             </div>
           </div>
         </article>
 
         <!-- Article 2 : Hydraulique et modèle de financement -->
-        <article class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col reveal delay-1">
-          <div class="h-52 overflow-hidden relative">
-            <img src="images/hydrolique/hydrolique-14.jpeg" alt="Système de distribution d'eau potable" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        <article class="bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col reveal delay-1 group">
+          <a href="article-modele-financement-hva.html" class="h-52 overflow-hidden relative block">
+            <img src="images/hydrolique/hydrolique-14.jpeg" alt="Système de distribution d'eau potable" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             <div class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white font-mono text-[11px] px-2.5 py-1 rounded-md">
               Développement • HVA
             </div>
-          </div>
+          </a>
           <div class="p-6 flex flex-col flex-grow">
             <span class="text-xs font-mono text-blue-600 font-semibold uppercase">Hydraulique Villageoise</span>
-            <h3 class="font-heading font-bold text-slate-900 text-lg mt-1 mb-2 hover:text-brand-red transition-colors">
-              Comment notre modèle de financement sur 3 ans transforme les villages
+            <h3 class="font-heading font-bold text-slate-900 text-lg mt-1 mb-2 group-hover:text-brand-red transition-colors">
+              <a href="article-modele-financement-hva.html">Comment notre modèle de financement sur 3 ans transforme les villages</a>
             </h3>
             <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4">
               En préfinançant les forages et réseaux de distribution sur fonds propres, Full Service Point SARL permet aux communautés rurales d'accéder immédiatement à une eau saine et durable.
             </p>
             <div class="mt-auto pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 font-mono">
               <span>Par Équipe Projets</span>
-              <span class="text-brand-red font-semibold flex items-center gap-1">Lire l'article <i data-lucide="chevron-right" class="w-3 h-3"></i></span>
+              <a href="article-modele-financement-hva.html" class="text-brand-red font-semibold flex items-center gap-1 group-hover:underline">
+                <span>Lire l'article</span>
+                <i data-lucide="arrow-right" class="w-3 h-3 btn-icon"></i>
+              </a>
             </div>
           </div>
         </article>
@@ -941,30 +947,37 @@
   </section>
 
   <!-- ══════════════════════════════════════════
-       SECTION SUR MESURE // BANNIÈRE D'APPEL MODERNE
+       SECTION CALL TO ACTION // BANNIÈRE ÉPURÉE & IMPACTANTE
   ══════════════════════════════════════════ -->
-  <section class="py-20 px-6 bg-slate-950 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-red-950/20 to-slate-900/40 pointer-events-none"></div>
-    <div class="max-w-5xl mx-auto text-center relative z-10 reveal">
-      <span class="section-badge section-badge-dark mb-4">
-        <span class="section-badge-dot"></span>
-        Ingénierie & Solutions Clé en Main
-      </span>
-      <h2 class="font-heading font-bold text-3xl sm:text-5xl text-white tracking-tight mt-3 mb-6">
-        Vous avez un projet complexe en Côte d'Ivoire ?
-      </h2>
-      <p class="text-slate-300 font-light text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
-        Collectivité locale, entreprise privée ou promoteur : bénéficiez d'une étude technique approfondie et d'un chiffrage transparent sous 48 heures.
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="#contact" class="btn btn-primary text-sm py-3 px-8">
-          <i data-lucide="send" class="w-4 h-4"></i>
-          <span>Soumettre un Cahier des Charges</span>
-        </a>
-        <a href="tel:+2252724371577" class="btn btn-secondary text-sm py-3 px-8">
-          <i data-lucide="phone" class="w-4 h-4"></i>
-          <span>Appeler le Standard</span>
-        </a>
+  <section class="py-12 px-6 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="relative rounded-2xl bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 p-8 md:p-12 border border-white/10 shadow-xl overflow-hidden reveal">
+        <!-- Ambiance lumineuse subtile -->
+        <div class="absolute -top-24 -right-24 w-72 h-72 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-emerald-400 font-mono text-[11px] mb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              Étude technique & faisabilité sous 48h
+            </div>
+            <h2 class="font-heading font-bold text-2xl sm:text-3xl text-white tracking-tight leading-snug">
+              Un projet d'infrastructure ou de multi-services en Côte d'Ivoire ?
+            </h2>
+            <p class="text-slate-300 text-sm mt-2 font-light">
+              Collectivités, promoteurs ou entreprises : nos ingénieurs et directeurs de pôles étudient votre besoin avec rigueur et transparence budgétaire.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3 flex-shrink-0">
+            <a href="#contact" class="btn btn-primary text-xs py-3 px-6 shadow-md">
+              <span>Demander une étude</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 btn-icon"></i>
+            </a>
+            <a href="tel:+2252724371577" class="btn btn-secondary text-xs py-3 px-5">
+              <i data-lucide="phone-call" class="w-3.5 h-3.5"></i>
+              <span>+225 27 24 37 15 77</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
