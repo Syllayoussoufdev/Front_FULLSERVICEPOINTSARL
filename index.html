@@ -70,10 +70,13 @@
         </span>
       </div>
       <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-        <span class="bg-white/5 px-2.5 py-0.5 rounded border border-white/10 text-emerald-400">
+        <span class="bg-white/5 px-2.5 py-0.5 rounded border border-white/10 text-emerald-400 hidden lg:inline">
           Chaque projet transforme des vies
         </span>
-        <span class="text-slate-400">Abidjan & Régions</span>
+        <a href="dashboard.html" class="flex items-center gap-1.5 px-3 py-1 rounded bg-brand-red/10 hover:bg-brand-red text-red-300 hover:text-white border border-brand-red/30 transition-all font-sans font-medium" title="Accéder au panneau d'administration">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-red group-hover:text-white"></i>
+          <span>Espace Admin CMS</span>
+        </a>
       </div>
     </div>
   </div>
@@ -145,6 +148,10 @@
       <a href="#equipe" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Équipe Dirigeante</a>
       <a href="#actualites" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Actualités</a>
       <a href="#contact" class="mobile-link text-xl font-heading font-semibold text-white hover:text-red-500">Contact & Devis</a>
+      <a href="dashboard.html" class="flex items-center gap-2.5 text-base font-heading font-semibold text-brand-red hover:text-white py-3 px-4 rounded-xl bg-white/5 border border-brand-red/30 mt-4 transition-colors">
+        <i data-lucide="shield-check" class="w-5 h-5"></i>
+        <span>Accéder à l'Espace Admin CMS</span>
+      </a>
     </nav>
     <div class="mt-auto pt-6 border-t border-white/10 flex flex-col gap-4">
       <a href="#contact" class="btn btn-primary w-full text-center">
@@ -1172,7 +1179,7 @@
 
       <!-- Copyright et Mention Développeur -->
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 sm:pr-24">
-        <p>© 2026 Full Service Point SARL. Tous droits réservés.</p>
+        <p>© 2026 Full Service Point SARL. Tous droits réservés. • <a href="dashboard.html" class="hover:text-white transition-colors underline decoration-slate-700">Accès Administration CMS</a></p>
         <p class="text-slate-400">
           Plateforme institutionnelle conçue par <span class="text-white font-semibold">Sly_TechnologieCi</span>
         </p>
