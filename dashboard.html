@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard d'Administration — Full Service Point SARL</title>
+  <link rel="icon" href="images/logo.png" type="image/png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#DC2626',
+              'red-dark': '#B91C1C',
+              'red-light': '#EF4444',
+            },
+            slate: {
+              850: '#101626',
+              950: '#070A12',
+            }
+          },
+          fontFamily: {
+            heading: ['"Plus Jakarta Sans"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif'],
+            mono: ['"Space Grotesk"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .dash-sidebar-link.active {
+      background: rgba(220, 38, 38, 0.1);
+      color: #DC2626;
+      border-right: 3px solid #DC2626;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-body antialiased flex h-screen overflow-hidden">
+
+  <!-- ══════════════════════════════════════════
+       SIDEBAR DU DASHBOARD
+  ══════════════════════════════════════════ -->
+  <aside class="w-64 bg-slate-950 text-slate-300 flex flex-col flex-shrink-0 border-r border-white/10 z-20">
+    <!-- En-tête Sidebar -->
+    <div class="h-20 flex items-center gap-3 px-6 border-b border-white/10">
+      <div class="w-9 h-9 rounded-xl bg-white/10 p-1.5 flex items-center justify-center border border-white/15">
+        <img src="images/logo.png" alt="Logo FSP" class="w-full h-full object-contain" />
+      </div>
+      <div>
+        <h1 class="font-heading font-extrabold text-white text-sm leading-tight tracking-tight">FSP DASHBOARD</h1>
+        <span class="font-mono text-[10px] text-brand-red uppercase tracking-wider block">Admin & Édition</span>
+      </div>
+    </div>
+
+    <!-- Navigation Sidebar -->
+    <nav class="flex-1 px-3 py-6 space-y-1.5 overflow-y-auto text-xs font-heading">
+      <a href="#vue-ensemble" class="dash-sidebar-link active flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all" data-tab="vue-ensemble">
+        <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+        <span>Vue d'ensemble</span>
+      </a>
+
+      <a href="#articles" class="dash-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all" data-tab="articles">
+        <div class="flex items-center gap-3">
+          <i data-lucide="newspaper" class="w-4 h-4"></i>
+          <span>Articles du Blog</span>
+        </div>
+        <span id="badge-count-articles" class="bg-red-500/20 text-brand-red px-1.5 py-0.5 rounded text-[10px] font-mono">3</span>
+      </a>
+
+      <a href="#messages" class="dash-sidebar-link flex items-center justify-between px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all" data-tab="messages">
+        <div class="flex items-center gap-3">
+          <i data-lucide="inbox" class="w-4 h-4"></i>
+          <span>Messages & Devis</span>
+        </div>
+        <span id="badge-count-messages" class="bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded text-[10px] font-mono">2 nouv.</span>
+      </a>
+
+      <a href="#services" class="dash-sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all" data-tab="services">
+        <i data-lucide="briefcase" class="w-4 h-4"></i>
+        <span>Pôles de Services</span>
+      </a>
+
+      <a href="#utilisateurs" class="dash-sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all" data-tab="utilisateurs">
+        <i data-lucide="users" class="w-4 h-4"></i>
+        <span>Utilisateurs & Rôles</span>
+      </a>
+
+      <a href="#parametres" class="dash-sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-all" data-tab="parametres">
+        <i data-lucide="settings" class="w-4 h-4"></i>
+        <span>Paramètres du Site</span>
+      </a>
+    </nav>
+
+    <!-- Pied de Sidebar / Profil connecté -->
+    <div class="p-4 border-t border-white/10 bg-slate-900/60 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <img src="images/profil/profil1.png" alt="Narcisse KRA" class="w-8 h-8 rounded-full object-cover border border-white/20" />
+        <div class="leading-tight">
+          <span class="font-heading font-semibold text-white text-xs block">Narcisse KRA</span>
+          <span class="text-[10px] text-emerald-400 font-mono">Rôle : Admin</span>
+        </div>
+      </div>
+      <a href="index.html" class="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/10" title="Voir le site public">
+        <i data-lucide="external-link" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════════════════
+       ZONE DE CONTENU PRINCIPALE
+  ══════════════════════════════════════════ -->
+  <div class="flex-1 flex flex-col h-screen overflow-hidden">
+    
+    <!-- Topbar du Dashboard -->
+    <header class="h-20 bg-white border-b border-slate-200 px-8 flex items-center justify-between flex-shrink-0 z-10">
+      <div class="flex items-center gap-4">
+        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          Environnement CMS Connecté
+        </span>
+        <span class="text-xs text-slate-400 hidden sm:inline">|</span>
+        <span class="text-xs font-medium text-slate-500 hidden sm:inline">Full Service Point SARL • Abidjan</span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button id="btn-quick-new-article" class="btn btn-primary text-xs py-2 px-4 shadow-sm">
+          <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+          <span>Rédiger un article</span>
+        </button>
+        <a href="index.html" target="_blank" class="btn btn-outline-slate text-xs py-2 px-3.5">
+          <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+          <span>Site public</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Conteneur défilant des onglets -->
+    <main class="flex-1 overflow-y-auto p-8">
+
+      <!-- ─── ONGLET 1 : VUE D'ENSEMBLE ─── -->
+      <section id="tab-vue-ensemble" class="dash-tab-content space-y-8">
+        <div>
+          <h2 class="font-heading font-extrabold text-2xl text-slate-900 tracking-tight">Tableau de Bord Général</h2>
+          <p class="text-xs text-slate-500 mt-1 font-light">Surveillez l'activité éditoriale, les demandes de devis et la gestion de vos pôles métiers.</p>
+        </div>
+
+        <!-- 4 Cartes d'indicateurs KPIs -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block">Articles Publiés</span>
+              <span id="kpi-articles-count" class="font-heading font-bold text-2xl text-slate-900 mt-1 block">3</span>
+              <span class="text-[11px] text-emerald-600 flex items-center gap-1 mt-1 font-medium">
+                <i data-lucide="check" class="w-3 h-3"></i> 2 en ligne, 1 brouillon
+              </span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-red-50 text-brand-red flex items-center justify-center">
+              <i data-lucide="file-text" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block">Messages & Devis</span>
+              <span id="kpi-messages-count" class="font-heading font-bold text-2xl text-slate-900 mt-1 block">4</span>
+              <span class="text-[11px] text-emerald-600 flex items-center gap-1 mt-1 font-medium">
+                <i data-lucide="clock" class="w-3 h-3"></i> 2 non traités
+              </span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+              <i data-lucide="inbox" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block">Pôles Actifs</span>
+              <span class="font-heading font-bold text-2xl text-slate-900 mt-1 block">6 / 6</span>
+              <span class="text-[11px] text-slate-500 mt-1 font-mono">HVA, BTP, Sécurité, etc.</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+              <i data-lucide="briefcase" class="w-6 h-6"></i>
+            </div>
+          </div>
+
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex items-center justify-between">
+            <div>
+              <span class="text-xs font-mono text-slate-400 uppercase tracking-wider block">Équipe Admin</span>
+              <span class="font-heading font-bold text-2xl text-slate-900 mt-1 block">5</span>
+              <span class="text-[11px] text-slate-500 mt-1 font-mono">1 Admin, 4 Éditeurs</span>
+            </div>
+            <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+              <i data-lucide="users" class="w-6 h-6"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 Blocs : Derniers Messages et Publications Récentes -->
+        <div class="grid lg:grid-cols-12 gap-8">
+          <!-- Derniers Messages -->
+          <div class="lg:col-span-7 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between mb-5 pb-3 border-b border-slate-100">
+              <h3 class="font-heading font-bold text-slate-900 text-base">Demandes Récentes de Contact & Devis</h3>
+              <a href="#messages" class="text-xs font-semibold text-brand-red hover:underline" onclick="switchTab('messages')">Voir tout</a>
+            </div>
+            <div id="quick-messages-list" class="space-y-3">
+              <!-- Rempli par JavaScript -->
+            </div>
+          </div>
+
+          <!-- Publications Récentes -->
+          <div class="lg:col-span-5 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+            <div class="flex items-center justify-between mb-5 pb-3 border-b border-slate-100">
+              <h3 class="font-heading font-bold text-slate-900 text-base">Articles Récents</h3>
+              <a href="#articles" class="text-xs font-semibold text-brand-red hover:underline" onclick="switchTab('articles')">Gérer</a>
+            </div>
+            <div id="quick-articles-list" class="space-y-3">
+              <!-- Rempli par JavaScript -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── ONGLET 2 : ARTICLES DU BLOG (CRUD COMPLET) ─── -->
+      <section id="tab-articles" class="dash-tab-content hidden space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 class="font-heading font-extrabold text-2xl text-slate-900 tracking-tight">Gestion des Articles du Blog</h2>
+            <p class="text-xs text-slate-500 mt-1 font-light">Publiez, modifiez ou archivez les communications officielles de l'entreprise.</p>
+          </div>
+          <button id="btn-open-create-modal" class="btn btn-primary text-xs py-2.5 px-4 shadow-sm">
+            <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+            <span>Créer un nouvel article</span>
+          </button>
+        </div>
+
+        <!-- Tableau des articles -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="p-4 border-b border-slate-100 flex items-center justify-between gap-4">
+            <div class="relative flex-1 max-w-sm">
+              <i data-lucide="search" class="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+              <input type="text" id="article-table-search" placeholder="Filtrer par titre ou catégorie..." class="w-full pl-9 pr-3 py-1.5 text-xs rounded-lg border border-slate-200 focus:outline-none focus:border-red-500" />
+            </div>
+            <div class="flex items-center gap-2 text-xs font-mono text-slate-500">
+              <span id="articles-total-label">3 articles enregistrés</span>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="bg-slate-50 border-b border-slate-200 text-slate-400 font-mono text-[11px] uppercase tracking-wider">
+                  <th class="py-3 px-4">Article</th>
+                  <th class="py-3 px-4">Catégorie</th>
+                  <th class="py-3 px-4">Auteur</th>
+                  <th class="py-3 px-4">Date</th>
+                  <th class="py-3 px-4">Statut</th>
+                  <th class="py-3 px-4 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="articles-table-body" class="divide-y divide-slate-100 font-medium">
+                <!-- Rempli par JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── ONGLET 3 : MESSAGES ET DEVIS ─── -->
+      <section id="tab-messages" class="dash-tab-content hidden space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="font-heading font-extrabold text-2xl text-slate-900 tracking-tight">Messages et Demandes de Devis</h2>
+            <p class="text-xs text-slate-500 mt-1 font-light">Consultez les demandes reçues via le formulaire de contact du site public.</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <div class="divide-y divide-slate-100" id="messages-full-list">
+            <!-- Rempli par JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── ONGLET 4 : PÔLES DE SERVICES ─── -->
+      <section id="tab-services" class="dash-tab-content hidden space-y-6">
+        <div>
+          <h2 class="font-heading font-extrabold text-2xl text-slate-900 tracking-tight">Pôles d'Activités Métiers (6)</h2>
+          <p class="text-xs text-slate-500 mt-1 font-light">Structure des 6 domaines stratégiques présentés sur le site vitrine.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="services-grid-admin">
+          <!-- Rempli par JavaScript -->
+        </div>
+      </section>
+
+      <!-- ─── ONGLET 5 : UTILISATEURS & RÔLES ─── -->
+      <section id="tab-utilisateurs" class="dash-tab-content hidden space-y-6">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="font-heading font-extrabold text-2xl text-slate-900 tracking-tight">Gestion des Utilisateurs & Rôles</h2>
+            <p class="text-xs text-slate-500 mt-1 font-light">Contrôle des accès : Admin (accès total) vs Éditeur (articles & messages).</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          <table class="w-full text-left border-collapse text-xs">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-slate-400 font-mono text-[11px] uppercase tracking-wider">
+                <th class="py-3 px-4">Membre</th>
+                <th class="py-3 px-4">Poste Officiel</th>
+                <th class="py-3 px-4">Contact</th>
+                <th class="py-3 px-4">Rôle Système</th>
+                <th class="py-3 px-4 text-right">Statut</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              <tr>
+                <td class="py-3 px-4 flex items-center gap-3">
+                  <img src="images/profil/profil1.png" alt="" class="w-8 h-8 rounded-full object-cover border" />
+                  <span class="font-heading font-bold text-slate-900">M. Narcisse KRA</span>
+                </td>
+                <td class="py-3 px-4 text-slate-600">Président Directeur Général</td>
+                <td class="py-3 px-4 font-mono text-slate-500">+225 07 68 97 84 42</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-red-100 text-brand-red font-mono font-semibold">Admin (Total)</span></td>
+                <td class="py-3 px-4 text-right"><span class="text-emerald-600 font-mono">Actif</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 flex items-center gap-3">
+                  <img src="images/profil/profil3.png" alt="" class="w-8 h-8 rounded-full object-cover border" />
+                  <span class="font-heading font-bold text-slate-900">M. Bérenger KOUE</span>
+                </td>
+                <td class="py-3 px-4 text-slate-600">Directeur des Opérations</td>
+                <td class="py-3 px-4 font-mono text-slate-500">+225 05 45 25 60 07</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 font-mono font-semibold">Éditeur</span></td>
+                <td class="py-3 px-4 text-right"><span class="text-emerald-600 font-mono">Actif</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 flex items-center gap-3">
+                  <img src="images/profil/profil4.png" alt="" class="w-8 h-8 rounded-full object-cover border" />
+                  <span class="font-heading font-bold text-slate-900">M. Richard KOUAMÉ</span>
+                </td>
+                <td class="py-3 px-4 text-slate-600">Directeur Hydraulique</td>
+                <td class="py-3 px-4 font-mono text-slate-500">+225 07 59 51 22 27</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 font-mono font-semibold">Éditeur</span></td>
+                <td class="py-3 px-4 text-right"><span class="text-emerald-600 font-mono">Actif</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 flex items-center gap-3">
+                  <img src="images/profil/profil2.png" alt="" class="w-8 h-8 rounded-full object-cover border" />
+                  <span class="font-heading font-bold text-slate-900">Mme Marie Rose KOUAO</span>
+                </td>
+                <td class="py-3 px-4 text-slate-600">Directrice Financière & RH</td>
+                <td class="py-3 px-4 font-mono text-slate-500">+225 07 08 24 00 61</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 font-mono font-semibold">Éditeur</span></td>
+                <td class="py-3 px-4 text-right"><span class="text-emerald-600 font-mono">Actif</span></td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 flex items-center gap-3">
+                  <img src="images/profil/profil5.png" alt="" class="w-8 h-8 rounded-full object-cover border" />
+                  <span class="font-heading font-bold text-slate-900">Mme Minata KAMAGATE</span>
+                </td>
+                <td class="py-3 px-4 text-slate-600">Responsable Commerciale</td>
+                <td class="py-3 px-4 font-mono text-slate-500">+225 05 46 59 56 03</td>
+                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded-full bg-blue-100 text-blue-700 font-mono font-semibold">Éditeur</span></td>
+                <td class="py-3 px-4 text-right"><span class="text-emerald-600 font-mono">Actif</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ─── ONGLET 6 : PARAMÈTRES DU SITE ─── -->
+      <section id="tab-parametres" class="dash-tab-content hidden space-y-6">
+        <div>
+          <h2 class="font-heading font-extrabold text-2xl text-slate-900 tracking-tight">Paramètres Globaux de l'Entreprise</h2>
+          <p class="text-xs text-slate-500 mt-1 font-light">Coordonnées institutionnelles, identifiants légaux et mentions du site.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm max-w-3xl">
+          <form id="settings-form" class="space-y-5 text-xs">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block font-heading font-semibold text-slate-700 mb-1">Raison Sociale</label>
+                <input type="text" value="FULL SERVICE POINT SARL" class="form-input text-xs" />
+              </div>
+              <div>
+                <label class="block font-heading font-semibold text-slate-700 mb-1">Capital Social</label>
+                <input type="text" value="5 000 000 FCFA" class="form-input text-xs" />
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block font-heading font-semibold text-slate-700 mb-1">Numéro RCCM</label>
+                <input type="text" value="CI-ABJ-03-2023-B12-01377" class="form-input text-xs font-mono" />
+              </div>
+              <div>
+                <label class="block font-heading font-semibold text-slate-700 mb-1">Numéro IDU</label>
+                <input type="text" value="CI-2023-0045799 Y" class="form-input text-xs font-mono" />
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block font-heading font-semibold text-slate-700 mb-1">Téléphone Fixe</label>
+                <input type="text" value="+225 27 24 37 15 77" class="form-input text-xs" />
+              </div>
+              <div>
+                <label class="block font-heading font-semibold text-slate-700 mb-1">Mobiles Direction</label>
+                <input type="text" value="+225 07 68 97 84 42 / 05 44 90 04 52" class="form-input text-xs" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block font-heading font-semibold text-slate-700 mb-1">Email Officiel</label>
+              <input type="email" value="fullservicepoint@gmail.com" class="form-input text-xs" />
+            </div>
+
+            <div>
+              <label class="block font-heading font-semibold text-slate-700 mb-1">Adresse Géographique</label>
+              <input type="text" value="Abidjan / Yopougon, Côte d'Ivoire" class="form-input text-xs" />
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <span id="settings-save-notice" class="text-emerald-600 font-mono hidden">✓ Paramètres enregistrés avec succès</span>
+              <button type="submit" class="btn btn-primary text-xs py-2 px-5 ml-auto">Enregistrer les modifications</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MODAL DE CRÉATION / ÉDITION D'ARTICLE
+  ══════════════════════════════════════════ -->
+  <div id="article-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 relative">
+      <button id="btn-close-modal" class="absolute top-6 right-6 text-slate-400 hover:text-slate-800 p-2">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="mb-6">
+        <span class="text-xs font-mono text-brand-red uppercase font-semibold">CMS Blog FSP SARL</span>
+        <h3 id="modal-article-title" class="font-heading font-bold text-slate-900 text-xl mt-1">Nouvel Article de Blog</h3>
+      </div>
+
+      <form id="article-form" class="space-y-4 text-xs">
+        <input type="hidden" id="form-article-id" value="" />
+
+        <div>
+          <label class="block font-heading font-semibold text-slate-700 mb-1">Titre de l'article *</label>
+          <input type="text" id="form-article-title" required placeholder="Ex: Forage d'adduction d'eau dans le Bélier..." class="form-input text-xs" />
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-heading font-semibold text-slate-700 mb-1">Catégorie *</label>
+            <select id="form-article-category" required class="form-input text-xs bg-white">
+              <option value="Hydraulique Villageoise">Hydraulique Villageoise</option>
+              <option value="Direction & Stratégie">Direction & Stratégie</option>
+              <option value="BTP & Infrastructures">BTP & Infrastructures</option>
+              <option value="Sécurité Privée">Sécurité Privée</option>
+              <option value="Transport & Logistique">Transport & Logistique</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-heading font-semibold text-slate-700 mb-1">Statut *</label>
+            <select id="form-article-status" required class="form-input text-xs bg-white">
+              <option value="Publié">Publié en ligne</option>
+              <option value="Brouillon">Brouillon (Non visible)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-heading font-semibold text-slate-700 mb-1">Auteur</label>
+            <input type="text" id="form-article-author" value="Direction FSP" class="form-input text-xs" />
+          </div>
+          <div>
+            <label class="block font-heading font-semibold text-slate-700 mb-1">Date de publication</label>
+            <input type="date" id="form-article-date" class="form-input text-xs" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-heading font-semibold text-slate-700 mb-1">URL / Fichier Image</label>
+          <input type="text" id="form-article-image" value="images/hydrolique/hydrolique-14.jpeg" class="form-input text-xs font-mono" />
+        </div>
+
+        <div>
+          <label class="block font-heading font-semibold text-slate-700 mb-1">Contenu texte de l'article *</label>
+          <textarea id="form-article-content" rows="6" required placeholder="Rédigez le texte de l'annonce ou de l'analyse..." class="form-input text-xs resize-none"></textarea>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-end gap-3">
+          <button type="button" id="btn-cancel-modal" class="btn btn-outline-slate text-xs py-2 px-4">Annuler</button>
+          <button type="submit" class="btn btn-primary text-xs py-2 px-5 shadow-sm">Enregistrer l'article</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPT DU DASHBOARD -->
+  <script>
+    // Données initiales par défaut (Articles)
+    const defaultArticles = [
+      {
+        id: 1,
+        title: "Extension des activités : Réunion au sommet pour l'accès à l'eau potable",
+        category: "Direction & Stratégie",
+        author: "M. Narcisse KRA",
+        date: "2026-08-04",
+        status: "Publié",
+        image: "images/presentation/2.png",
+        content: "C'est à la date du 04 Août que s'est tenue une séance de travail stratégique de premier ordre entre les dirigeants et les partenaires..."
+      },
+      {
+        id: 2,
+        title: "Hydraulique Villageoise : Notre programme innovant de préfinancement sur 3 ans",
+        category: "Hydraulique Villageoise",
+        author: "M. Richard KOUAMÉ",
+        date: "2026-08-12",
+        status: "Publié",
+        image: "images/hydrolique/hydrolique-14.jpeg",
+        content: "En milieu rural ivoirien, la réalisation d'un système HVA représente un coût initial élevé..."
+      },
+      {
+        id: 3,
+        title: "Nouvelles normes de sécurité et déploiement logistique sur les corridors",
+        category: "Sécurité Privée",
+        author: "M. Bérenger KOUE",
+        date: "2026-08-18",
+        status: "Brouillon",
+        image: "images/securite/Securité-1.jpg",
+        content: "Supervision des protocoles de gardiennage et suivi GPS des convois..."
+      }
+    ];
+
+    // Données des messages reçus
+    const defaultMessages = [
+      {
+        id: 1,
+        name: "M. Bakayoko Souleymane",
+        org: "Mutuelle de Développement de Toumodi",
+        email: "mutuelle.toumodi@gmail.com",
+        phone: "+225 07 48 12 34 56",
+        service: "Hydraulique Villageoise",
+        date: "Il y a 2 heures",
+        message: "Bonjour, nous souhaitons solliciter votre modèle de préfinancement sur 3 ans pour équiper 2 villages de notre sous-préfecture en eau potable.",
+        unread: true
+      },
+      {
+        id: 2,
+        name: "Ing. Koffi Marc",
+        org: "BTP & Logistique CI",
+        email: "koffi.marc@btpci.com",
+        phone: "+225 05 12 78 90 23",
+        service: "Bâtiment & Travaux Publics",
+        date: "Hier à 16:30",
+        message: "Demande de chiffrage pour terrassement lourd et assainissement sur un projet de 14 logements à Abidjan-Yopougon.",
+        unread: true
+      },
+      {
+        id: 3,
+        name: "Mme Yao Clarisse",
+        org: "Société Civile",
+        email: "clarisse.yao@yahoo.fr",
+        phone: "+225 01 23 45 67 89",
+        service: "Auto-école",
+        date: "Il y a 3 jours",
+        message: "Demande de convention pour la formation de 25 jeunes conducteurs de notre commune.",
+        unread: false
+      }
+    ];
+
+    // Les 6 pôles de services
+    const servicesList = [
+      { id: "01", name: "Hydraulique Villageoise Améliorée (HVA)", icon: "droplets", status: "Actif", projects: "12 chantiers" },
+      { id: "02", name: "Bâtiment & Travaux Publics (BTP)", icon: "hard-hat", status: "Actif", projects: "8 chantiers" },
+      { id: "03", name: "Sécurité Privée & Gardiennage", icon: "shield-check", status: "Actif", projects: "15 sites" },
+      { id: "04", name: "Transport & Fret Logistique", icon: "truck", status: "Actif", projects: "Flotte active" },
+      { id: "05", name: "Auto-École Publique & Privée", icon: "car", status: "Actif", projects: "Agréé État" },
+      { id: "06", name: "Microfinance (FUFINAP) & Commerce", icon: "wallet-cards", status: "Actif", projects: "En cours" },
+    ];
+
+    // Initialisation du stockage
+    let articles = JSON.parse(localStorage.getItem('fsp_articles')) || defaultArticles;
+    let messages = JSON.parse(localStorage.getItem('fsp_messages')) || defaultMessages;
+
+    const saveArticles = () => localStorage.setItem('fsp_articles', JSON.stringify(articles));
+    const saveMessages = () => localStorage.setItem('fsp_messages', JSON.stringify(messages));
+
+    // Rendu des Articles
+    const renderArticles = () => {
+      const tbody = document.getElementById('articles-table-body');
+      const quickList = document.getElementById('quick-articles-list');
+      const totalLabel = document.getElementById('articles-total-label');
+      const kpiCount = document.getElementById('kpi-articles-count');
+      const badgeCount = document.getElementById('badge-count-articles');
+
+      if (kpiCount) kpiCount.textContent = articles.length;
+      if (badgeCount) badgeCount.textContent = articles.length;
+      if (totalLabel) totalLabel.textContent = `${articles.length} article(s) enregistré(s)`;
+
+      if (tbody) {
+        tbody.innerHTML = articles.map(art => `
+          <tr class="hover:bg-slate-50 transition-colors">
+            <td class="py-3 px-4">
+              <div class="flex items-center gap-3">
+                <img src="${art.image}" class="w-10 h-8 rounded-lg object-cover border" />
+                <div>
+                  <span class="font-heading font-bold text-slate-900 block">${art.title}</span>
+                  <span class="text-[11px] text-slate-400 line-clamp-1">${art.content}</span>
+                </div>
+              </div>
+            </td>
+            <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-slate-100 font-mono text-[11px]">${art.category}</span></td>
+            <td class="py-3 px-4 text-slate-600">${art.author}</td>
+            <td class="py-3 px-4 font-mono text-slate-500">${art.date}</td>
+            <td class="py-3 px-4">
+              <span class="px-2 py-0.5 rounded-full text-[11px] font-mono ${art.status === 'Publié' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}">
+                ${art.status}
+              </span>
+            </td>
+            <td class="py-3 px-4 text-right">
+              <div class="flex items-center justify-end gap-1.5">
+                <button onclick="editArticle(${art.id})" class="p-1 text-slate-400 hover:text-slate-800" title="Modifier">
+                  <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
+                </button>
+                <button onclick="deleteArticle(${art.id})" class="p-1 text-slate-400 hover:text-brand-red" title="Supprimer">
+                  <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `).join('');
+      }
+
+      if (quickList) {
+        quickList.innerHTML = articles.slice(0, 3).map(art => `
+          <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-100 text-xs">
+            <div class="flex items-center gap-3">
+              <img src="${art.image}" class="w-9 h-7 rounded object-cover" />
+              <div>
+                <span class="font-heading font-semibold text-slate-900 block line-clamp-1">${art.title}</span>
+                <span class="text-[10px] text-slate-400 font-mono">${art.category} • ${art.date}</span>
+              </div>
+            </div>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono ${art.status === 'Publié' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'}">
+              ${art.status}
+            </span>
+          </div>
+        `).join('');
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    };
+
+    // Rendu des Messages
+    const renderMessages = () => {
+      const fullList = document.getElementById('messages-full-list');
+      const quickList = document.getElementById('quick-messages-list');
+      const badgeCount = document.getElementById('badge-count-messages');
+      const kpiMessages = document.getElementById('kpi-messages-count');
+
+      const unreadCount = messages.filter(m => m.unread).length;
+      if (badgeCount) badgeCount.textContent = `${unreadCount} nouv.`;
+      if (kpiMessages) kpiMessages.textContent = messages.length;
+
+      if (fullList) {
+        fullList.innerHTML = messages.map(msg => `
+          <div class="p-5 flex flex-col sm:flex-row sm:items-start justify-between gap-4 ${msg.unread ? 'bg-red-50/20' : 'bg-white'}">
+            <div class="flex-1">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="font-heading font-bold text-slate-900 text-sm">${msg.name}</span>
+                ${msg.org ? `<span class="text-xs text-slate-500">• ${msg.org}</span>` : ''}
+                ${msg.unread ? '<span class="bg-brand-red text-white text-[10px] font-mono px-2 py-0.5 rounded-full">Nouveau</span>' : ''}
+              </div>
+              <div class="text-xs font-mono text-slate-400 mb-2 flex items-center gap-4">
+                <span>Pôle : <strong class="text-slate-700">${msg.service}</strong></span>
+                <span>${msg.email}</span>
+                <span>${msg.phone}</span>
+                <span>${msg.date}</span>
+              </div>
+              <p class="text-xs text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100 leading-relaxed font-light">${msg.message}</p>
+            </div>
+            <div class="flex sm:flex-col items-center gap-2 flex-shrink-0">
+              <button onclick="toggleReadMessage(${msg.id})" class="btn btn-outline-slate text-[11px] py-1.5 px-3">
+                ${msg.unread ? 'Marquer lu' : 'Marquer non lu'}
+              </button>
+              <a href="mailto:${msg.email}?subject=Suite%20a%20votre%20demande%20Full%20Service%20Point%20SARL" class="btn btn-primary text-[11px] py-1.5 px-3">
+                Répondre
+              </a>
+              <button onclick="deleteMessage(${msg.id})" class="text-slate-400 hover:text-brand-red p-1" title="Supprimer">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      if (quickList) {
+        quickList.innerHTML = messages.slice(0, 3).map(msg => `
+          <div class="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-start justify-between gap-3 text-xs">
+            <div>
+              <div class="flex items-center gap-2">
+                <strong class="font-heading font-semibold text-slate-900">${msg.name}</strong>
+                <span class="text-[10px] font-mono text-brand-red">${msg.service}</span>
+              </div>
+              <p class="text-slate-500 line-clamp-1 mt-0.5 font-light">${msg.message}</p>
+            </div>
+            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">${msg.date}</span>
+          </div>
+        `).join('');
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+    };
+
+    // Rendu des Services
+    const renderServices = () => {
+      const grid = document.getElementById('services-grid-admin');
+      if (!grid) return;
+      grid.innerHTML = servicesList.map(s => `
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-9 h-9 rounded-lg bg-red-50 text-brand-red flex items-center justify-center">
+                <i data-lucide="${s.icon}" class="w-5 h-5"></i>
+              </div>
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700">${s.status}</span>
+            </div>
+            <span class="font-mono text-[10px] text-slate-400 uppercase">PÔLE ${s.id}</span>
+            <h4 class="font-heading font-bold text-slate-900 text-sm mt-0.5 mb-2">${s.name}</h4>
+          </div>
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+            <span>${s.projects}</span>
+            <span class="text-brand-red font-semibold cursor-pointer hover:underline">Gérer</span>
+          </div>
+        </div>
+      `).join('');
+      if (window.lucide) window.lucide.createIcons();
+    };
+
+    // Fonctions CRUD
+    window.deleteArticle = (id) => {
+      if (confirm("Supprimer cet article définitivement ?")) {
+        articles = articles.filter(a => a.id !== id);
+        saveArticles();
+        renderArticles();
+      }
+    };
+
+    window.editArticle = (id) => {
+      const art = articles.find(a => a.id === id);
+      if (!art) return;
+      document.getElementById('modal-article-title').textContent = "Modifier l'article";
+      document.getElementById('form-article-id').value = art.id;
+      document.getElementById('form-article-title').value = art.title;
+      document.getElementById('form-article-category').value = art.category;
+      document.getElementById('form-article-status').value = art.status;
+      document.getElementById('form-article-author').value = art.author;
+      document.getElementById('form-article-date').value = art.date;
+      document.getElementById('form-article-image').value = art.image;
+      document.getElementById('form-article-content').value = art.content;
+      document.getElementById('article-modal').classList.remove('hidden');
+    };
+
+    window.deleteMessage = (id) => {
+      if (confirm("Supprimer ce message ?")) {
+        messages = messages.filter(m => m.id !== id);
+        saveMessages();
+        renderMessages();
+      }
+    };
+
+    window.toggleReadMessage = (id) => {
+      messages = messages.map(m => m.id === id ? { ...m, unread: !m.unread } : m);
+      saveMessages();
+      renderMessages();
+    };
+
+    // Gestion du Formulaire d'Article
+    const articleForm = document.getElementById('article-form');
+    if (articleForm) {
+      articleForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const idVal = document.getElementById('form-article-id').value;
+        const newArt = {
+          id: idVal ? parseInt(idVal) : Date.now(),
+          title: document.getElementById('form-article-title').value,
+          category: document.getElementById('form-article-category').value,
+          status: document.getElementById('form-article-status').value,
+          author: document.getElementById('form-article-author').value,
+          date: document.getElementById('form-article-date').value || new Date().toISOString().split('T')[0],
+          image: document.getElementById('form-article-image').value,
+          content: document.getElementById('form-article-content').value
+        };
+
+        if (idVal) {
+          articles = articles.map(a => a.id === parseInt(idVal) ? newArt : a);
+        } else {
+          articles.unshift(newArt);
+        }
+
+        saveArticles();
+        renderArticles();
+        document.getElementById('article-modal').classList.add('hidden');
+        articleForm.reset();
+      });
+    }
+
+    // Modal Events
+    const openModalBtn = document.getElementById('btn-open-create-modal');
+    const quickModalBtn = document.getElementById('btn-quick-new-article');
+    const closeModalBtn = document.getElementById('btn-close-modal');
+    const cancelModalBtn = document.getElementById('btn-cancel-modal');
+    const modalEl = document.getElementById('article-modal');
+
+    const openCreateModal = () => {
+      document.getElementById('modal-article-title').textContent = "Nouvel Article de Blog";
+      document.getElementById('form-article-id').value = "";
+      if (articleForm) articleForm.reset();
+      document.getElementById('form-article-date').value = new Date().toISOString().split('T')[0];
+      modalEl.classList.remove('hidden');
+    };
+
+    if (openModalBtn) openModalBtn.addEventListener('click', openCreateModal);
+    if (quickModalBtn) quickModalBtn.addEventListener('click', openCreateModal);
+    if (closeModalBtn) closeModalBtn.addEventListener('click', () => modalEl.classList.add('hidden'));
+    if (cancelModalBtn) cancelModalBtn.addEventListener('click', () => modalEl.classList.add('hidden'));
+
+    // Navigation par Onglets
+    window.switchTab = (tabId) => {
+      document.querySelectorAll('.dash-sidebar-link').forEach(link => {
+        link.classList.toggle('active', link.getAttribute('data-tab') === tabId);
+      });
+      document.querySelectorAll('.dash-tab-content').forEach(content => {
+        content.classList.toggle('hidden', content.id !== `tab-${tabId}`);
+      });
+    };
+
+    document.querySelectorAll('.dash-sidebar-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const tab = link.getAttribute('data-tab');
+        switchTab(tab);
+      });
+    });
+
+    // Filtre de recherche dans les articles
+    const searchInput = document.getElementById('article-table-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        const query = searchInput.value.toLowerCase().trim();
+        const rows = document.querySelectorAll('#articles-table-body tr');
+        rows.forEach(row => {
+          row.style.display = row.innerText.toLowerCase().includes(query) ? '' : 'none';
+        });
+      });
+    }
+
+    // Paramètres
+    const settingsForm = document.getElementById('settings-form');
+    if (settingsForm) {
+      settingsForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const notice = document.getElementById('settings-save-notice');
+        notice.classList.remove('hidden');
+        setTimeout(() => notice.classList.add('hidden'), 3500);
+      });
+    }
+
+    // Initialisation générale
+    document.addEventListener('DOMContentLoaded', () => {
+      renderArticles();
+      renderMessages();
+      renderServices();
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
