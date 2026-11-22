@@ -1,0 +1,22 @@
+# Robots.txt — Full Service Point SARL (Côte d'Ivoire)
+# Protection des routes sensibles et indexation optimale des pages publiques
+
+User-agent: *
+Allow: /
+Allow: /blog.html
+Allow: /article-*.html
+Allow: /images/
+Allow: /style.css
+Allow: /main.js
+
+# Sécurité & Protection de l'Espace d'Administration (Interdiction d'indexation)
+Disallow: /admin/
+Disallow: /admin-login.html
+Disallow: /dashboard.html
+Disallow: /docker/
+Disallow: /storage/
+Disallow: /vendor/
+Disallow: /.env*
+
+# Référence au plan de site XML officiel
+Sitemap: https://fullservicepoint.ci/sitemap.xml

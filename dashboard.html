@@ -46,6 +46,27 @@
       font-weight: 600;
     }
   </style>
+
+  <!-- Middleware de Vérification de Session Sécurisée (Simulant le Middleware Auth de Laravel) -->
+  <script>
+    (function() {
+      const stored = sessionStorage.getItem('fsp_auth_session') || localStorage.getItem('fsp_auth_session');
+      if (!stored) {
+        window.location.replace('admin-login.html');
+        return;
+      }
+      try {
+        const session = JSON.parse(stored);
+        if (!session || !session.token || (session.expiresAt && Date.now() > session.expiresAt)) {
+          sessionStorage.removeItem('fsp_auth_session');
+          localStorage.removeItem('fsp_auth_session');
+          window.location.replace('admin-login.html?expired=1');
+        }
+      } catch (e) {
+        window.location.replace('admin-login.html');
+      }
+    })();
+  </script>
 </head>
 <body class="bg-slate-100 text-slate-800 font-body antialiased flex h-screen overflow-hidden">
 
@@ -103,18 +124,23 @@
       </a>
     </nav>
 
-    <!-- Pied de Sidebar / Profil connecté -->
-    <div class="p-4 border-t border-white/10 bg-slate-900/60 flex items-center justify-between">
-      <div class="flex items-center gap-2.5">
-        <img src="images/profil/profil1.png" alt="Narcisse KRA" class="w-8 h-8 rounded-full object-cover border border-white/20" />
-        <div class="leading-tight">
-          <span class="font-heading font-semibold text-white text-xs block">Narcisse KRA</span>
-          <span class="text-[10px] text-emerald-400 font-mono">Rôle : Admin</span>
+    <!-- Pied de Sidebar / Profil connecté & Déconnexion Sécurisée -->
+    <div class="p-4 border-t border-white/10 bg-slate-900/80 flex items-center justify-between">
+      <div class="flex items-center gap-2.5 overflow-hidden">
+        <img id="dash-user-avatar" src="images/profil/profil1.png" alt="Utilisateur" class="w-8 h-8 rounded-full object-cover border border-white/20 flex-shrink-0" />
+        <div class="leading-tight truncate">
+          <span id="dash-user-name" class="font-heading font-semibold text-white text-xs block truncate">Narcisse KRA</span>
+          <span id="dash-user-role" class="text-[10px] text-emerald-400 font-mono">Rôle : Admin</span>
         </div>
       </div>
-      <a href="index.html" class="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/10" title="Voir le site public">
-        <i data-lucide="external-link" class="w-4 h-4"></i>
-      </a>
+      <div class="flex items-center gap-1">
+        <a href="index.html" target="_blank" class="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors" title="Voir le site public">
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+        <button onclick="logoutAdmin()" class="p-1.5 text-red-400 hover:text-white rounded-lg hover:bg-red-500/20 transition-colors" title="Fermer la session (Déconnexion)">
+          <i data-lucide="power" class="w-3.5 h-3.5"></i>
+        </button>
+      </div>
     </div>
   </aside>
 
@@ -126,23 +152,27 @@
     <!-- Topbar du Dashboard -->
     <header class="h-20 bg-white border-b border-slate-200 px-8 flex items-center justify-between flex-shrink-0 z-10">
       <div class="flex items-center gap-4">
-        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-600 flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          Environnement CMS Connecté
+        <span class="text-xs font-mono px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Session Authentifiée Sécurisée
         </span>
         <span class="text-xs text-slate-400 hidden sm:inline">|</span>
-        <span class="text-xs font-medium text-slate-500 hidden sm:inline">Full Service Point SARL • Abidjan</span>
+        <span id="topbar-session-info" class="text-xs font-medium text-slate-600 hidden sm:inline">Connecté : M. Narcisse KRA (Admin)</span>
       </div>
 
-      <div class="flex items-center gap-4">
-        <button id="btn-quick-new-article" class="btn btn-primary text-xs py-2 px-4 shadow-sm">
+      <div class="flex items-center gap-3">
+        <button id="btn-quick-new-article" class="btn btn-primary text-xs py-2 px-3.5 shadow-sm">
           <i data-lucide="plus" class="w-3.5 h-3.5"></i>
           <span>Rédiger un article</span>
         </button>
-        <a href="index.html" target="_blank" class="btn btn-outline-slate text-xs py-2 px-3.5">
+        <a href="index.html" target="_blank" class="btn btn-outline-slate text-xs py-2 px-3">
           <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-          <span>Site public</span>
+          <span class="hidden md:inline">Site public</span>
         </a>
+        <button onclick="logoutAdmin()" class="btn btn-outline-slate text-xs py-2 px-3 text-red-600 hover:bg-red-50 hover:border-red-200 transition-colors flex items-center gap-1.5" title="Déconnexion sécurisée">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+          <span>Déconnexion</span>
+        </button>
       </div>
     </header>
 
@@ -887,8 +917,47 @@
       });
     }
 
+    // Gestion de la Déconnexion Sécurisée
+    window.logoutAdmin = () => {
+      if (confirm("Confirmez-vous la fermeture sécurisée de votre session d'administration ?")) {
+        sessionStorage.removeItem('fsp_auth_session');
+        localStorage.removeItem('fsp_auth_session');
+        window.location.replace('admin-login.html?action=logout');
+      }
+    };
+
+    // Chargement dynamique du profil de session authentifié
+    const initAuthProfile = () => {
+      const stored = sessionStorage.getItem('fsp_auth_session') || localStorage.getItem('fsp_auth_session');
+      if (stored) {
+        try {
+          const session = JSON.parse(stored);
+          const nameEl = document.getElementById('dash-user-name');
+          const roleEl = document.getElementById('dash-user-role');
+          const avatarEl = document.getElementById('dash-user-avatar');
+          const topbarInfo = document.getElementById('topbar-session-info');
+
+          if (nameEl) nameEl.textContent = session.user || 'Administrateur';
+          if (roleEl) roleEl.textContent = 'Rôle : ' + (session.role || 'Admin');
+          if (avatarEl && session.avatar) avatarEl.src = session.avatar;
+          if (topbarInfo) topbarInfo.textContent = `Connecté : ${session.user} (${session.role})`;
+
+          // Restreindre l'accès aux onglets sensibles si le rôle est 'Éditeur'
+          if (session.role === 'Éditeur') {
+            const paramTab = document.querySelector('[data-tab="parametres"]');
+            const usersTab = document.querySelector('[data-tab="utilisateurs"]');
+            if (paramTab) paramTab.classList.add('opacity-40', 'cursor-not-allowed');
+            if (usersTab) usersTab.classList.add('opacity-40', 'cursor-not-allowed');
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    };
+
     // Initialisation générale
     document.addEventListener('DOMContentLoaded', () => {
+      initAuthProfile();
       renderArticles();
       renderMessages();
       renderServices();

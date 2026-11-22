@@ -3,8 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Actualités & Publications — Full Service Point SARL</title>
-  <meta name="description" content="Découvrez les actualités officielles, analyses techniques et déploiements sur le terrain de Full Service Point SARL en Côte d'Ivoire." />
+  <title>Actualités & Chantiers | Full Service Point SARL Côte d'Ivoire</title>
+  
+  <!-- Métadonnées SEO & Référencement -->
+  <meta name="description" content="Actualités, retours de chantiers HVA et BTP, innovations et publications officielles de Full Service Point SARL en Côte d'Ivoire. Suivez notre impact sur le terrain." />
+  <meta name="keywords" content="Actualités Full Service Point, Blog FSP SARL, chantiers hydraulique Côte d'Ivoire, adduction eau potable, actualités BTP Abidjan, sécurité privée FSP" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://fullservicepoint.ci/blog.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="blog" />
+  <meta property="og:locale" content="fr_CI" />
+  <meta property="og:site_name" content="Full Service Point SARL" />
+  <meta property="og:title" content="Actualités & Chantiers | Full Service Point SARL" />
+  <meta property="og:description" content="Découvrez les déploiements sur le terrain, analyses d'experts et réalisations de Full Service Point SARL." />
+  <meta property="og:url" content="https://fullservicepoint.ci/blog.html" />
+  <meta property="og:image" content="https://fullservicepoint.ci/images/projets/hva1.png" />
+
+  <!-- Données Structurées Breadcrumbs Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Accueil",
+        "item": "https://fullservicepoint.ci/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Actualités & Blog",
+        "item": "https://fullservicepoint.ci/blog.html"
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" href="images/logo.png" type="image/png" />
 
   <!-- Google Fonts : Plus Jakarta Sans (titres), Inter (texte), Space Grotesk (chiffres/badges) -->
@@ -68,13 +105,10 @@
         </span>
       </div>
       <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
-        <span class="bg-white/5 px-2.5 py-0.5 rounded border border-white/10 text-emerald-400 hidden lg:inline">
+        <span class="bg-white/5 px-2.5 py-0.5 rounded border border-white/10 text-emerald-400">
           Chaque projet transforme des vies
         </span>
-        <a href="dashboard.html" class="flex items-center gap-1.5 px-3 py-1 rounded bg-brand-red/10 hover:bg-brand-red text-red-300 hover:text-white border border-brand-red/30 transition-all font-sans font-medium" title="Accéder au panneau d'administration">
-          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-red"></i>
-          <span>Espace Admin CMS</span>
-        </a>
+        <span class="text-slate-400">Abidjan & Régions</span>
       </div>
     </div>
   </div>
@@ -429,7 +463,7 @@
       </div>
 
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 sm:pr-24">
-        <p>© 2026 Full Service Point SARL. Tous droits réservés. • <a href="dashboard.html" class="hover:text-white transition-colors underline decoration-slate-700">Accès Administration CMS</a></p>
+        <p>© 2026 Full Service Point SARL. Tous droits réservés. • <button type="button" onclick="window.fspOpenCookieModal && window.fspOpenCookieModal()" class="text-slate-400 hover:text-white underline decoration-slate-700 transition-colors">Gestion des cookies</button></p>
         <p class="text-slate-400">
           Plateforme institutionnelle conçue par <span class="text-white font-semibold">Sly_TechnologieCi</span>
         </p>
@@ -442,8 +476,9 @@
     <i data-lucide="message-circle" class="w-7 h-7"></i>
   </a>
 
-  <!-- Scripts -->
+  <!-- Scripts d'interaction & Consentement Analytics -->
   <script src="main.js"></script>
+  <script src="cookie-consent.js"></script>
   <script>
     // Filtrage dynamique du blog
     const searchInput = document.getElementById('blog-search-input');

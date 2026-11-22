@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Page d'Accueil Principale -->
+  <url>
+    <loc>https://fullservicepoint.ci/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Hub d'Actualités & Blog -->
+  <url>
+    <loc>https://fullservicepoint.ci/blog.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Article : Extension des Activités BTP & HVA -->
+  <url>
+    <loc>https://fullservicepoint.ci/article-extension-activites.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Article : Modèle de Financement Innovant HVA -->
+  <url>
+    <loc>https://fullservicepoint.ci/article-modele-financement-hva.html</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>
