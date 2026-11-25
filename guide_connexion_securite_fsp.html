@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document Officiel de Connexion, Sécurité & Guide CMS — Full Service Point SARL</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+    @page {
+      size: A4;
+      margin: 14mm 12mm 14mm 12mm;
+      @bottom-right {
+        content: counter(page) " / " counter(pages);
+        font-family: 'Space Grotesk', monospace;
+        font-size: 8pt;
+        color: #64748b;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      font-size: 9.5pt;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #0f172a;
+      margin-top: 0;
+      font-weight: 700;
+    }
+
+    .font-mono {
+      font-family: 'Space Grotesk', monospace;
+    }
+
+    .page-break {
+      page-break-before: always;
+    }
+
+    .avoid-break {
+      page-break-inside: avoid;
+    }
+
+    /* En-tête officiel */
+    .doc-header {
+      border-bottom: 2px solid #dc2626;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .doc-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .doc-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: #0f172a;
+      padding: 6px;
+      border: 1px solid #334155;
+    }
+
+    .doc-brand-title {
+      font-size: 15pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+
+    .doc-brand-sub {
+      font-size: 7.5pt;
+      font-family: 'Space Grotesk', monospace;
+      color: #dc2626;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .doc-badge-confidential {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-family: 'Space Grotesk', monospace;
+    }
+
+    /* Titre du document */
+    .title-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      border-left: 6px solid #dc2626;
+    }
+
+    .title-banner h1 {
+      color: #ffffff;
+      font-size: 17pt;
+      font-weight: 800;
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+
+    .title-banner p {
+      color: #94a3b8;
+      font-size: 8.5pt;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .title-meta {
+      display: flex;
+      gap: 16px;
+      margin-top: 12px;
+      font-size: 8pt;
+      color: #cbd5e1;
+      font-family: 'Space Grotesk', monospace;
+    }
+
+    .title-meta span {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    /* Grilles et boîtes */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 8.5pt;
+    }
+
+    .card-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 5px;
+    }
+
+    .section-title {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #0f172a;
+      border-bottom: 1.5px solid #dc2626;
+      padding-bottom: 4px;
+      margin-top: 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* Tableaux */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+      font-size: 8.5pt;
+    }
+
+    th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 7px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 8pt;
+      font-family: 'Space Grotesk', monospace;
+      text-transform: uppercase;
+    }
+
+    td {
+      padding: 7px 10px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: middle;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 7.5pt;
+      font-weight: 600;
+      font-family: 'Space Grotesk', monospace;
+    }
+
+    .badge-red { background: #fee2e2; color: #dc2626; border: 1px solid #fecaca; }
+    .badge-emerald { background: #d1fae5; color: #059669; border: 1px solid #a7f3d0; }
+    .badge-blue { background: #dbeafe; color: #2563eb; border: 1px solid #bfdbfe; }
+    .badge-dark { background: #1e293b; color: #f8fafc; }
+
+    /* Alertes & Notes */
+    .alert {
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      font-size: 8.5pt;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .alert-danger {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+
+    .alert-info {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      color: #1e40af;
+    }
+
+    .alert-success {
+      background: #f0fdf4;
+      border-left: 4px solid #10b981;
+      color: #065f46;
+    }
+
+    code {
+      font-family: 'Space Grotesk', monospace;
+      background: #e2e8f0;
+      color: #0f172a;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 8pt;
+      font-weight: 600;
+    }
+
+    ul, ol {
+      margin-top: 4px;
+      margin-bottom: 8px;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 3px;
+    }
+
+    .doc-footer {
+      margin-top: 25px;
+      padding-top: 10px;
+      border-top: 1px solid #cbd5e1;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.5pt;
+      color: #64748b;
+      font-family: 'Space Grotesk', monospace;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 1 : SYNTHÈSE, ACCÈS & IDENTIFIANTS ADMINISTRATEUR
+  ══════════════════════════════════════════════════════════ -->
+
+  <div class="doc-header">
+    <div class="doc-brand">
+      <div class="doc-logo">
+        <!-- Remplacement logo institutionnel -->
+        <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" style="width:100%;height:100%;">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
+      <div>
+        <div class="doc-brand-title">FULL SERVICE POINT SARL</div>
+        <div class="doc-brand-sub">République de Côte d'Ivoire • Excellence Multi-Services</div>
+      </div>
+    </div>
+    <div class="doc-badge-confidential">
+      DOCUMENT STRICTEMENT CONFIDENTIEL
+    </div>
+  </div>
+
+  <div class="title-banner">
+    <h1>GUIDE DE CONNEXION, SÉCURITÉ & EXPLOITATION DU CMS</h1>
+    <p>Manuel d'exploitation officiel et gouvernance technique de la plateforme web institutionnelle et de l'espace d'administration Full Service Point SARL.</p>
+    <div class="title-meta">
+      <span>Date : Novembre 2026</span>
+      <span>Version : 1.0 Production</span>
+      <span>Diffusion : Direction Générale & Administrateurs</span>
+    </div>
+  </div>
+
+  <div class="grid-2 avoid-break">
+    <div class="card">
+      <div class="card-title">1. Fiche d'Identité Juridique</div>
+      <p style="margin:2px 0;"><strong>Dénomination :</strong> FULL SERVICE POINT SARL</p>
+      <p style="margin:2px 0;"><strong>Capital Social :</strong> 5 000 000 FCFA</p>
+      <p style="margin:2px 0;"><strong>RCCM :</strong> <code>CI-ABJ-03-2023-B12-01377</code></p>
+      <p style="margin:2px 0;"><strong>IDU :</strong> <code>CI-2023-0045799 Y</code></p>
+      <p style="margin:2px 0;"><strong>Siège :</strong> Abidjan / Yopougon, Côte d'Ivoire</p>
+      <p style="margin:2px 0;"><strong>Standard Fixe :</strong> (+225) 27 24 37 15 77</p>
+      <p style="margin:2px 0;"><strong>Direction Mobile :</strong> (+225) 07 68 97 84 42</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">2. Environnement & Gestion des Branches Git</div>
+      <p style="margin:2px 0;"><strong>Dépôt GitHub :</strong> <code>Front_FULLSERVICEPOINTSARL.git</code></p>
+      <p style="margin:2px 0;"><strong>Branche <code>main</code> :</strong> Version statique institutionnelle (Déploiement Vercel / Hébergement standard).</p>
+      <p style="margin:2px 0;"><strong>Branche <code>feature/laravel-blade-cms</code> :</strong> Branche dynamique Laravel 11, conteneurs Docker, base MySQL et CMS complet.</p>
+      <p style="margin:2px 0;"><strong>Serveur Local Actif :</strong> <code>http://localhost:8000</code></p>
+    </div>
+  </div>
+
+  <div class="section-title">3. Cartographie des Accès & URLs du Système</div>
+
+  <table class="avoid-break">
+    <thead>
+      <tr>
+        <th>Espace</th>
+        <th>URL Locale (Développement)</th>
+        <th>URL Production Cible</th>
+        <th>Visibilité & Protection</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Site Vitrine Officiel</strong></td>
+        <td><code>http://localhost:8000/index.html</code></td>
+        <td><code>https://fullservicepoint.ci/</code></td>
+        <td><span class="badge badge-emerald">Public / Indexé SEO</span></td>
+      </tr>
+      <tr>
+        <td><strong>Hub Actualités & Blog</strong></td>
+        <td><code>http://localhost:8000/blog.html</code></td>
+        <td><code>https://fullservicepoint.ci/actualites</code></td>
+        <td><span class="badge badge-emerald">Public / Indexé SEO</span></td>
+      </tr>
+      <tr>
+        <td><strong>Écran de Connexion Admin</strong></td>
+        <td><code>http://localhost:8000/admin-login.html</code></td>
+        <td><code>https://fullservicepoint.ci/fsp-admin/connexion</code></td>
+        <td><span class="badge badge-red">Discret / Non Lié / Noindex</span></td>
+      </tr>
+      <tr>
+        <td><strong>Tableau de Bord CMS</strong></td>
+        <td><code>http://localhost:8000/dashboard.html</code></td>
+        <td><code>https://fullservicepoint.ci/fsp-admin/tableau-de-bord</code></td>
+        <td><span class="badge badge-red">Protégé par Session Guard</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert alert-danger avoid-break">
+    <strong>Règle de Cybersécurité Fondamentale :</strong> Aucun lien menant à l'administration n'apparaît sur le site public (suppression totale de la topbar, du menu mobile et du footer). Les accès administrateur doivent être conservés confidentiellement par les membres accrédités de la Direction.
+  </div>
+
+  <div class="section-title">4. Matrice des Rôles & Identifiants Autorisés</div>
+
+  <table class="avoid-break">
+    <thead>
+      <tr>
+        <th>Utilisateur & Fonction</th>
+        <th>Identifiant (Email)</th>
+        <th>Mot de Passe Initial</th>
+        <th>Rôle Système</th>
+        <th>Périmètre de Droits</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <strong>M. Narcisse KRA</strong><br />
+          <span style="font-size:7.5pt;color:#64748b;">Président Directeur Général</span>
+        </td>
+        <td>
+          <code>admin@fullservicepoint.ci</code><br />
+          <span style="font-size:7pt;color:#64748b;">Alias : fullservicepoint@gmail.com</span>
+        </td>
+        <td><code style="color:#dc2626;">Admin2026@FSP</code></td>
+        <td><span class="badge badge-red">Admin (Accès Total)</span></td>
+        <td>Accès total : Blog, Messages & Devis, 6 Pôles Métiers, Utilisateurs & Rôles, Paramètres d'Entreprise, SEO.</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>M. Bérenger KOUE</strong><br />
+          <span style="font-size:7.5pt;color:#64748b;">Directeur des Opérations</span>
+        </td>
+        <td><code>berenger.koue@fullservicepoint.ci</code></td>
+        <td><code style="color:#2563eb;">Editeur2026@FSP</code></td>
+        <td><span class="badge badge-blue">Éditeur Opérationnel</span></td>
+        <td>Rédaction/Édition d'articles du blog, consultation et traitement des demandes de devis et messages prospects.</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>M. Richard KOUAMÉ</strong><br />
+          <span style="font-size:7.5pt;color:#64748b;">Directeur Hydraulique (HVA)</span>
+        </td>
+        <td><code>richard.kouame@fullservicepoint.ci</code></td>
+        <td><code>Editeur2026@FSP</code></td>
+        <td><span class="badge badge-blue">Éditeur Métier</span></td>
+        <td>Publication de rapports de chantiers HVA et suivi technique.</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Mme Marie Rose KOUAO</strong><br />
+          <span style="font-size:7.5pt;color:#64748b;">Directrice Financière & RH</span>
+        </td>
+        <td><code>marierose.kouao@fullservicepoint.ci</code></td>
+        <td><code>Editeur2026@FSP</code></td>
+        <td><span class="badge badge-blue">Éditeur Métier</span></td>
+        <td>Articles d'ingénierie financière et microfinance FUFINAP.</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Mme Minata KAMAGATE</strong><br />
+          <span style="font-size:7.5pt;color:#64748b;">Responsable Commerciale</span>
+        </td>
+        <td><code>minata.kamagate@fullservicepoint.ci</code></td>
+        <td><code>Editeur2026@FSP</code></td>
+        <td><span class="badge badge-blue">Éditeur Commercial</span></td>
+        <td>Traitement et qualification des demandes de devis.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 2 : PROTOCOLES DE SÉCURITÉ & GUIDE EXPLOITATION DU CMS
+  ══════════════════════════════════════════════════════════ -->
+
+  <div class="page-break"></div>
+
+  <div class="doc-header">
+    <div class="doc-brand">
+      <div class="doc-brand-title" style="font-size:11pt;">FULL SERVICE POINT SARL — SÉCURITÉ & EXPLOITATION CMS</div>
+    </div>
+    <div class="badge badge-dark">SECTION TECHNIQUE</div>
+  </div>
+
+  <div class="section-title">5. Protocoles de Sécurité Appliqués sur la Plateforme</div>
+
+  <div class="grid-2 avoid-break">
+    <div class="card">
+      <div class="card-title">A. Verrouillage Brute-Force (Rate Limiting)</div>
+      <p>Protection contre les tentatives d'attaques par dictionnaire ou force brute :</p>
+      <ul>
+        <li>Tolérance de <strong>5 tentatives infructueuses</strong> maximum par minute.</li>
+        <li>Au-delà, déclenchement d'un <strong>blocage de sécurité de 60 secondes</strong> avec décompte visuel.</li>
+        <li>Journalisation d'alerte horodatée avec adresse IP source.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">B. Barrière de Session (Auth Guard & Middleware)</div>
+      <p>Toute requête vers <code>dashboard.html</code> ou <code>/fsp-admin/*</code> est filtrée :</p>
+      <ul>
+        <li>Vérification préalable du jeton de session chiffré.</li>
+        <li>En cas d'absence de session active : <strong>redirection immédiate vers l'écran de login</strong>.</li>
+        <li>Expiration automatique après 24 heures (ou 7 jours si mémorisation cochée).</li>
+        <li>Invalidation instantanée lors d'un clic sur « Déconnexion ».</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">C. En-têtes HTTP & Chiffrement</div>
+      <p>Normes de sécurité serveur implémentées dans le middleware Laravel :</p>
+      <ul>
+        <li><strong>X-Frame-Options : DENY</strong> (Anti-Clickjacking).</li>
+        <li><strong>X-Content-Type-Options : nosniff</strong> (Anti-MIME Sniffing).</li>
+        <li>Protection CSRF systématique via jeton unique par session.</li>
+        <li>Hachage des mots de passe en <strong>Bcrypt</strong> (facteur de coût 12).</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">D. Discrétion Moteurs de Recherche (Robots.txt)</div>
+      <p>Consignes de non-indexation configurées pour les robots de recherche :</p>
+      <ul>
+        <li><code>Disallow: /fsp-admin/</code></li>
+        <li><code>Disallow: /admin-login.html</code></li>
+        <li><code>Disallow: /dashboard.html</code></li>
+        <li>Interdiction d'accès aux répertoires de configuration et d'environnement.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">6. Guide Pratique d'Utilisation des 6 Modules du CMS</div>
+
+  <div class="avoid-break">
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-title">Module 1 : Tableau de Bord Général (KPIs & Alertes en Temps Réel)</div>
+      <p>Dès la connexion, le gestionnaire visualise 4 indicateurs opérationnels consolidés : total d'articles publiés, volume de demandes de devis non traitées, statut d'activité des 6 pôles, et effectif accrédité. Les 5 derniers messages reçus et les publications récentes sont consultables d'un coup d'œil.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-title">Module 2 : Gestion des Articles de Blog (CRUD Complet)</div>
+      <p>Permet à la Direction de communiquer sur les réalisations de terrain :</p>
+      <ul>
+        <li><strong>Création :</strong> Bouton <em>« Rédiger un article »</em> &rarr; Formulaire modal comprenant Titre, Catégorie (HVA, BTP, Sécurité, etc.), Extrait, Contenu textuel riche, Image d'illustration et Statut (<em>Publié</em> ou <em>Brouillon</em>).</li>
+        <li><strong>Édition & Suppression :</strong> Chaque ligne du tableau intègre des boutons d'action rapide pour ajuster un texte ou supprimer un article.</li>
+        <li><strong>Recherche instantanée :</strong> Champ de filtrage dynamique en temps réel par mot-clé ou thématique.</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-title">Module 3 : Messages & Demandes de Devis (Boîte de Réception)</div>
+      <p>Centralise les prospects générés via le formulaire de contact du site public. Chaque demande affiche le nom du prospect, ses coordonnées téléphoniques et email, le pôle d'expertise concerné, l'estimation budgétaire et le message. L'administrateur peut basculer le statut en <em>« Traité »</em> ou archiver la demande.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-title">Module 4 : Gouvernance des 6 Pôles Métiers</div>
+      <p>Contrôle l'affichage et l'ordre des domaines stratégiques : <em>1. Hydraulique HVA</em>, <em>2. BTP & Travaux Publics</em>, <em>3. Sécurité Privée</em>, <em>4. Transport & Fret</em>, <em>5. Auto-École</em>, <em>6. Microfinance FUFINAP</em>. Possibilité d'activer/désactiver la visibilité d'un pôle selon les priorités commerciales de l'entreprise.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-title">Module 5 : Gestion des Utilisateurs & Attribution des Rôles</div>
+      <p>Réservé à <strong>M. Narcisse KRA (PDG)</strong>. Permet de surveiller la liste des comptes autorisés, d'attribuer les prérogatives d'Éditeur ou d'Administrateur, et de suspendre un accès en cas de mobilité de personnel.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Module 6 : Paramètres Institutionnels & Identifiants Légaux</div>
+      <p>Enregistre les données officielles de l'entreprise (Raison sociale, Capital, RCCM, IDU, numéros de téléphone du standard et adresses emails de réception des alertes). Ces données alimentent dynamiquement le site sans modification de code source.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════
+       PAGE 3 : RGPD / COOKIES, GOOGLE ANALYTICS, SEO & DÉPLOIEMENT
+  ══════════════════════════════════════════════════════════ -->
+
+  <div class="page-break"></div>
+
+  <div class="doc-header">
+    <div class="doc-brand">
+      <div class="doc-brand-title" style="font-size:11pt;">FULL SERVICE POINT SARL — ANALYTICS, SEO & EXPLOITATION</div>
+    </div>
+    <div class="badge badge-dark">CONFORMITÉ & DÉPLOIEMENT</div>
+  </div>
+
+  <div class="section-title">7. Suivi Google Analytics 4 & Consentement Cookies (RGPD / APDP)</div>
+
+  <div class="grid-2 avoid-break">
+    <div class="card">
+      <div class="card-title">A. Gestion du Consentement (Cookie-Consent.js)</div>
+      <ul>
+        <li><strong>Consentement préalable strict :</strong> Aucun cookie de mesure ni script Google Analytics n'est exécuté avant le clic visiteur.</li>
+        <li><strong>Choix utilisateur :</strong> <em>« Accepter tout »</em>, <em>« Refuser »</em> (seuls les cookies techniques indispensables sont conservés), ou <em>« Détails »</em>.</li>
+        <li><strong>Durabilité :</strong> Mémorisation du choix pendant 180 jours (6 mois).</li>
+        <li><strong>Droit de modification :</strong> Lien discret <em>« Gestion des cookies »</em> disponible dans le footer de toutes les pages.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">B. Suivi des Conversions & Prospects</div>
+      <p>Événements GA4 configurés avec anonymisation IP (ID : <code>G-FSP2026CI</code>) :</p>
+      <ul>
+        <li><code>generate_lead</code> : Déclenché lors de l'envoi d'un devis ou message de contact.</li>
+        <li><code>contact_whatsapp</code> : Déclenché lors du clic sur le bouton WhatsApp flottant.</li>
+        <li><code>contact_phone</code> : Déclenché lors d'un appel téléphonique direct vers la Direction.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-title">8. Référencement Naturel (SEO) & Données Structurées Google</div>
+
+  <table class="avoid-break">
+    <thead>
+      <tr>
+        <th>Élément SEO</th>
+        <th>Implémentation Technique</th>
+        <th>Objectif Stratégique</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Meta Title Optimisé</strong></td>
+        <td><code>Full Service Point SARL | BTP, Hydraulique HVA & Sécurité Côte d'Ivoire</code></td>
+        <td>Positionnement premier plan sur Google pour les marchés d'infrastructures en Côte d'Ivoire.</td>
+      </tr>
+      <tr>
+        <td><strong>Meta Description</strong></td>
+        <td>Synthèse de 160 caractères ciblant l'HVA, le génie civil, la sécurité privée et la logistique à Abidjan.</td>
+        <td>Maximisation du taux de clic (CTR) dans les résultats de recherche.</td>
+      </tr>
+      <tr>
+        <td><strong>Open Graph / WhatsApp</strong></td>
+        <td>Balises <code>og:image</code>, <code>og:title</code>, <code>og:description</code> configurées en 1200x630px.</td>
+        <td>Génération automatique d'une carte visuelle professionnelle lors des partages sur WhatsApp et LinkedIn.</td>
+      </tr>
+      <tr>
+        <td><strong>Schema.org JSON-LD</strong></td>
+        <td>Déclaration structurée de type <code>Corporation</code> / <code>LocalBusiness</code> avec RCCM, géolocalisation et catalogue.</td>
+        <td>Affichage enrichi (Knowledge Graph & Rich Snippets) dans l'écosystème Google.</td>
+      </tr>
+      <tr>
+        <td><strong>Fichier Sitemap.xml</strong></td>
+        <td>Indexation hiérarchisée des pages d'accueil, du blog et des articles détaillés avec priorités de 0.7 à 1.0.</td>
+        <td>Exploration rapide et indexation exhaustive par Googlebot et Bingbot.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">9. Procédures Opérationnelles de Démarrage & Commandes Utiles</div>
+
+  <div class="card avoid-break" style="background:#0f172a;color:#cbd5e1;padding:14px;border:none;">
+    <p style="color:#ffffff;font-weight:700;margin-top:0;font-size:9pt;">A. Lancement Rapide du Serveur Local (Développement & Prévisualisation) :</p>
+    <code style="background:#1e293b;color:#38bdf8;display:block;padding:8px;margin-bottom:10px;border-radius:6px;">
+      python -m http.server 8000
+    </code>
+    <p style="color:#ffffff;font-weight:700;margin-top:8px;font-size:9pt;">B. Lancement de la Pile Conteneurisée Laravel 11 / Docker (PHP 8.3 + Nginx + MySQL) :</p>
+    <code style="background:#1e293b;color:#38bdf8;display:block;padding:8px;margin-bottom:10px;border-radius:6px;">
+      docker compose up -d
+    </code>
+    <p style="color:#ffffff;font-weight:700;margin-top:8px;font-size:9pt;">C. Commandes Git pour la Synchronisation & Mise en Ligne :</p>
+    <code style="background:#1e293b;color:#38bdf8;display:block;padding:8px;border-radius:6px;">
+      git checkout feature/laravel-blade-cms &amp;&amp; git pull origin feature/laravel-blade-cms<br />
+      git push origin feature/laravel-blade-cms
+    </code>
+  </div>
+
+  <div class="doc-footer avoid-break">
+    <span>FULL SERVICE POINT SARL • Document de Confidentialité & Sécurité Système</span>
+    <span>Édité le 25 Novembre 2026 • Sly_TechnologieCi</span>
+  </div>
+
+</body>
+</html>
